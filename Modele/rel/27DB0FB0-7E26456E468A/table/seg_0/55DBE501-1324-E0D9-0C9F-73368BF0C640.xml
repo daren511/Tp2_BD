@@ -1,0 +1,110 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="55DBE501-1324-E0D9-0C9F-73368BF0C640" name="Emprunts">
+<createdBy>201093812</createdBy>
+<createdTime>2014-02-25 15:39:03 UTC</createdTime>
+<generatorID>Généré par l&apos;utilisateur</generatorID>
+<ownerDesignName>Modele</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="NumPret" id="6336ACEF-61DC-D00B-979C-52171D284B7B">
+<createdBy>201093812</createdBy>
+<createdTime>2014-02-25 17:26:00 UTC</createdTime>
+<generatorID>Généré par l&apos;utilisateur</generatorID>
+<ownerDesignName>Modele</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>0</dataTypePrecision>
+<dataTypeScale>5</dataTypeScale>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NumExemplaire" id="D4C8B8B1-D3B9-9B5E-5AC6-FEBE6978B215">
+<createdBy>201093812</createdBy>
+<createdTime>2014-02-25 16:24:08 UTC</createdTime>
+<generatorID>Généré par l&apos;utilisateur</generatorID>
+<ownerDesignName>Modele</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>0</dataTypePrecision>
+<dataTypeScale>5</dataTypeScale>
+<delegate>8BFF8182-681F-5B0A-95F1-E7CEEBD34C75</delegate>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="E6E138F7-5700-C456-3C9E-D1837FFA040C" referredColumn="8BFF8182-681F-5B0A-95F1-E7CEEBD34C75"/>
+</associations>
+</Column>
+<Column name="NumAdherant" id="806DC2CA-2304-66F0-5778-F01FD2E0B244">
+<createdBy>201093812</createdBy>
+<createdTime>2014-02-25 17:19:18 UTC</createdTime>
+<generatorID>Généré par l&apos;utilisateur</generatorID>
+<ownerDesignName>Modele</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<delegate>BB1C002C-A23D-0BA6-B0C6-6CDCA2451B96</delegate>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="10F8B36A-8D3A-6385-9F02-49B00AF9B603" referredColumn="BB1C002C-A23D-0BA6-B0C6-6CDCA2451B96"/>
+</associations>
+</Column>
+<Column name="DateEmprunt" id="9D7F90D3-FC6F-AE1B-A422-89A7A90EB49A">
+<createdBy>201093812</createdBy>
+<createdTime>2014-02-25 16:06:30 UTC</createdTime>
+<generatorID>Généré par l&apos;utilisateur</generatorID>
+<ownerDesignName>Modele</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DateRetouPrevue" id="8661D146-1038-741E-D501-E7769F1C600C">
+<createdBy>201093812</createdBy>
+<createdTime>2014-02-25 16:06:47 UTC</createdTime>
+<generatorID>Généré par l&apos;utilisateur</generatorID>
+<ownerDesignName>Modele</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="0E2DE7CB-746F-9278-E435-B55191A7379C" name="Prets/Retours_PK">
+<createdBy>201093812</createdBy>
+<createdTime>2014-02-25 16:24:08 UTC</createdTime>
+<generatorID>Généré par l&apos;utilisateur</generatorID>
+<ownerDesignName>Modele</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6336ACEF-61DC-D00B-979C-52171D284B7B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="AEB6510D-0C71-3C11-0EDC-9E9DC0D6B4E4" name="Emprunts_Adhérents_FK">
+<createdBy>201093812</createdBy>
+<createdTime>2014-02-25 17:19:55 UTC</createdTime>
+<generatorID>Généré par l&apos;utilisateur</generatorID>
+<ownerDesignName>Modele</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="806DC2CA-2304-66F0-5778-F01FD2E0B244"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="2DE3ACB4-8A4E-ACE1-FEFF-F42E5683A490" name="Emprunts_Exemplaires_FK">
+<createdBy>201093812</createdBy>
+<createdTime>2014-02-25 18:17:03 UTC</createdTime>
+<generatorID>Généré par l&apos;utilisateur</generatorID>
+<ownerDesignName>Modele</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D4C8B8B1-D3B9-9B5E-5AC6-FEBE6978B215"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

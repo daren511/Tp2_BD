@@ -1,0 +1,73 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="DDB30459-3A8D-1571-EC66-8958A0DD0966" name="Exemplaires">
+<createdBy>201093812</createdBy>
+<createdTime>2014-02-25 18:10:34 UTC</createdTime>
+<generatorID>Généré par l&apos;utilisateur</generatorID>
+<ownerDesignName>Modele</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="NumExemplaire" id="8BFF8182-681F-5B0A-95F1-E7CEEBD34C75">
+<createdBy>201093812</createdBy>
+<createdTime>2014-02-25 18:12:49 UTC</createdTime>
+<generatorID>Généré par l&apos;utilisateur</generatorID>
+<ownerDesignName>Modele</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>0</dataTypePrecision>
+<dataTypeScale>5</dataTypeScale>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NumLivre" id="050D4923-2E92-9F0A-B38E-7EA37B4CCFCC">
+<createdBy>201093812</createdBy>
+<createdTime>2014-02-25 18:12:49 UTC</createdTime>
+<generatorID>Généré par l&apos;utilisateur</generatorID>
+<ownerDesignName>Modele</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<delegate>D9261FBB-8C33-2827-F780-FD784FC3CA7D</delegate>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="CC063F22-71BA-2CEF-60AA-99BC06DD9AAC" referredColumn="D9261FBB-8C33-2827-F780-FD784FC3CA7D"/>
+</associations>
+</Column>
+<Column name="Disponible" id="D86842A5-CDDE-B147-78F5-175CAC1DE0F9">
+<createdBy>201093812</createdBy>
+<createdTime>2014-02-25 18:13:52 UTC</createdTime>
+<generatorID>Généré par l&apos;utilisateur</generatorID>
+<ownerDesignName>Modele</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1 CHAR</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="11F53E9D-0253-2E71-3B71-353E4FC7715C" name="Exemplaires_PK">
+<createdBy>201093812</createdBy>
+<createdTime>2014-02-25 18:12:49 UTC</createdTime>
+<generatorID>Généré par l&apos;utilisateur</generatorID>
+<ownerDesignName>Modele</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8BFF8182-681F-5B0A-95F1-E7CEEBD34C75"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="5BC0795B-AECD-EA5E-BBF9-79793BD8753D" name="Exemplaires_Livres_FK">
+<createdBy>201093812</createdBy>
+<createdTime>2014-02-25 18:14:08 UTC</createdTime>
+<generatorID>Généré par l&apos;utilisateur</generatorID>
+<ownerDesignName>Modele</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="050D4923-2E92-9F0A-B38E-7EA37B4CCFCC"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,63 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="99B1D5A7-056D-810E-FD2C-9B0934C95137" name="Retours">
+<createdBy>201093812</createdBy>
+<createdTime>2014-02-25 17:23:34 UTC</createdTime>
+<generatorID>Généré par l&apos;utilisateur</generatorID>
+<ownerDesignName>Modele</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="NumPret" id="15B48E60-C0D4-44D1-FBDB-F38EE2EC42F2">
+<createdBy>201093812</createdBy>
+<createdTime>2014-02-25 17:24:47 UTC</createdTime>
+<generatorID>Généré par l&apos;utilisateur</generatorID>
+<ownerDesignName>Modele</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>0</dataTypePrecision>
+<dataTypeScale>5</dataTypeScale>
+<delegate>6336ACEF-61DC-D00B-979C-52171D284B7B</delegate>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="C6F967D6-62CE-E0D5-EEBD-314BBB77615A" referredColumn="6336ACEF-61DC-D00B-979C-52171D284B7B"/>
+</associations>
+</Column>
+<Column name="DateRetour" id="8BA40599-724B-BD81-0567-CA7B03A6909F">
+<createdBy>201093812</createdBy>
+<createdTime>2014-02-25 17:40:37 UTC</createdTime>
+<generatorID>Généré par l&apos;utilisateur</generatorID>
+<ownerDesignName>Modele</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="9305F77F-B59B-F336-0703-C808A57C665A" name="Retours_PK">
+<createdBy>201093812</createdBy>
+<createdTime>2014-02-25 17:24:47 UTC</createdTime>
+<generatorID>Généré par l&apos;utilisateur</generatorID>
+<ownerDesignName>Modele</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="15B48E60-C0D4-44D1-FBDB-F38EE2EC42F2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="70B12554-70D1-8FE4-16CA-83438DC7121A" name="Retours_Emprunts_FK">
+<createdBy>201093812</createdBy>
+<createdTime>2014-02-25 17:35:26 UTC</createdTime>
+<generatorID>Généré par l&apos;utilisateur</generatorID>
+<ownerDesignName>Modele</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="15B48E60-C0D4-44D1-FBDB-F38EE2EC42F2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

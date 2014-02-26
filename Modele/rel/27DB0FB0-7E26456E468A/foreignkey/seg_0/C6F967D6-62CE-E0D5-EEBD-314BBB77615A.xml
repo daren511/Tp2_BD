@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="C6F967D6-62CE-E0D5-EEBD-314BBB77615A" name="Retours_Emprunts_FK">
+<createdBy>201093812</createdBy>
+<createdTime>2014-02-25 17:35:26 UTC</createdTime>
+<generatorID>Généré par l&apos;utilisateur</generatorID>
+<ownerDesignName>Modele</ownerDesignName>
+<containerWithKeyObject>99B1D5A7-056D-810E-FD2C-9B0934C95137</containerWithKeyObject>
+<deleteRule>NO ACTION</deleteRule>
+<localFKIndex>70B12554-70D1-8FE4-16CA-83438DC7121A</localFKIndex>
+<keyObject>0E2DE7CB-746F-9278-E435-B55191A7379C</keyObject>
+<mandatory>true</mandatory>
+<transferable>true</transferable>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

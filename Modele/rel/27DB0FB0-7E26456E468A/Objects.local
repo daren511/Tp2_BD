@@ -1,0 +1,12 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<oracle.dbtools.crest.model.design.relational.RelationalDesign>
+   <object objectType="Table" objectID="3CFA4864-7A57-5E29-373B-EC0A490ABC5B" name="Adhérents" seqName="seg_0"/>
+   <object objectType="Table" objectID="55DBE501-1324-E0D9-0C9F-73368BF0C640" name="Emprunts" seqName="seg_0"/>
+   <object objectType="Table" objectID="DDB30459-3A8D-1571-EC66-8958A0DD0966" name="Exemplaires" seqName="seg_0"/>
+   <object objectType="Table" objectID="BD47D0FE-E6E2-07CD-D4CD-BAC3F0BF4415" name="Livres" seqName="seg_0"/>
+   <object objectType="Table" objectID="99B1D5A7-056D-810E-FD2C-9B0934C95137" name="Retours" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="10F8B36A-8D3A-6385-9F02-49B00AF9B603" name="Emprunts_Adhérents_FK" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="CC063F22-71BA-2CEF-60AA-99BC06DD9AAC" name="Exemplaires_Livres_FK" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="E6E138F7-5700-C456-3C9E-D1837FFA040C" name="Emprunts_Exemplaires_FK" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="C6F967D6-62CE-E0D5-EEBD-314BBB77615A" name="Retours_Emprunts_FK" seqName="seg_0"/>
+</oracle.dbtools.crest.model.design.relational.RelationalDesign>
