@@ -1,3 +1,9 @@
+Drop table Retours;
+Drop table Emprunts;
+Drop table Exemplaires;
+Drop table Adhérents;
+Drop table Livres;
+
 CREATE TABLE Adhérents
   (
     NumAdherant NUMBER NOT NULL ,
@@ -49,7 +55,8 @@ ALTER TABLE Livres ADD CONSTRAINT Livres_PK PRIMARY KEY
 ;
 
 CREATE TABLE Retours
-  ( NumPret NUMBER NOT NULL , DateRetour DATE
+  ( 
+  NumPret NUMBER NOT NULL , DateRetour DATE
   ) ;
 ALTER TABLE Retours ADD CONSTRAINT Retours_PK PRIMARY KEY
 (
