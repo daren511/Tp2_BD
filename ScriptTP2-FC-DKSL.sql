@@ -71,3 +71,48 @@ ALTER TABLE Emprunts ADD CONSTRAINT Emprunts_Exemplaires_FK FOREIGN KEY ( NumExe
 ALTER TABLE Exemplaires ADD CONSTRAINT Exemplaires_Livres_FK FOREIGN KEY ( NumLivre ) REFERENCES Livres ( NumLivre ) ;
 
 ALTER TABLE Retours ADD CONSTRAINT Retours_Emprunts_FK FOREIGN KEY ( NumPret ) REFERENCES Emprunts ( NumPret ) ;
+
+--TRIGGER
+create or replace 
+trigger INCPRETS
+BEFORE INSERT ON EMPRUNTS
+for each row
+BEGIN
+ if :new.NUMPRET is null then select seqprets.nextval into :new.numpret from dual;
+END if;
+end;
+--------------------
+create or replace 
+trigger MISEAJOURBIBLIO 
+BEFORE INSERT OR DELETE OR UPDATE ON EMPRUNTS 
+DECLARE MESSAGE EXCEPTION; 
+ BEGIN 
+ IF (TO_CHAR(SYSDATE,'DY')= 'SAM.' OR TO_CHAR(SYSDATE,'DY')= 'DIM.') 
+ THEN RAISE MESSAGE; 
+ END IF; 
+ EXCEPTION 
+ WHEN MESSAGE THEN RAISE_APPLICATION_ERROR(-20324,'ont ne met pas à jour la fin de semaine'); 
+ END;
+ --------------------
+ create or replace 
+trigger TEMPBIDON 
+BEFORE INSERT OR DELETE OR UPDATE ON EMPLOYESBIDON 
+DECLARE MESSAGE EXCEPTION; 
+ BEGIN 
+ IF (TO_CHAR(SYSDATE,'DY')= 'SAM.' OR TO_CHAR(SYSDATE,'DY')= 'DIM.') 
+ THEN RAISE MESSAGE; 
+ END IF; 
+ EXCEPTION 
+ WHEN MESSAGE THEN RAISE_APPLICATION_ERROR(-20324,'ont ne met 
+pas à jour la fin de semaine'); 
+ END;
+ -------------------
+ create or replace 
+trigger TEMPNUMERO 
+BEFORE INSERT ON EMPLOYESBIDON
+for each row
+BEGIN
+ if :new.numemp is null then select SEQEMPLOYESBIDON.nextval into :new.numemp from dual;
+END if;
+end;
+---------------------
