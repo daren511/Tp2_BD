@@ -32,6 +32,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Oracle.DataAccess, Version=4.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=x86" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -50,8 +51,26 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_Adherents.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Adherents.Designer.cs">
+      <DependentUpon>Form_Adherents.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Ajouter_Adherent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Ajouter_Adherent.Designer.cs">
+      <DependentUpon>Form_Ajouter_Adherent.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form_Adherents.resx">
+      <DependentUpon>Form_Adherents.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Ajouter_Adherent.resx">
+      <DependentUpon>Form_Ajouter_Adherent.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
