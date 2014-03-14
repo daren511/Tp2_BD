@@ -48,7 +48,7 @@
     <Compile Include="Form_Adherents.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_Adherents.Designer.cs">
+    <Compile Include="Form_Adherents.designer.cs">
       <DependentUpon>Form_Adherents.cs</DependentUpon>
     </Compile>
     <Compile Include="Form_Ajouter_Adherent.cs">
