@@ -48,25 +48,41 @@
     <Compile Include="Form_Adherents.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_Adherents.Designer.cs" />
+    <Compile Include="Form_Adherents.Designer.cs">
+      <DependentUpon>Form_Adherents.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_Ajouter_Adherent.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_Ajouter_Adherent.Designer.cs" />
+    <Compile Include="Form_Ajouter_Adherent.Designer.cs">
+      <DependentUpon>Form_Ajouter_Adherent.cs</DependentUpon>
+    </Compile>
     <Compile Include="Gestion_Livres.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Gestion_Livres.Designer.cs" />
+    <Compile Include="Gestion_Livres.Designer.cs">
+      <DependentUpon>Gestion_Livres.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login.Designer.cs" />
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form_Adherents.resx" />
-    <EmbeddedResource Include="Form_Ajouter_Adherent.resx" />
-    <EmbeddedResource Include="Gestion_Livres.resx" />
-    <EmbeddedResource Include="Login.resx" />
+    <EmbeddedResource Include="Form_Adherents.resx">
+      <DependentUpon>Form_Adherents.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Ajouter_Adherent.resx">
+      <DependentUpon>Form_Ajouter_Adherent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gestion_Livres.resx">
+      <DependentUpon>Gestion_Livres.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
