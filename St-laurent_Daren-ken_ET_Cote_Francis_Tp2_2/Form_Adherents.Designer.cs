@@ -38,13 +38,14 @@
             // 
             // BTN_Fermer
             // 
-            this.BTN_Fermer.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.BTN_Fermer.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.BTN_Fermer.Location = new System.Drawing.Point(90, 190);
             this.BTN_Fermer.Name = "BTN_Fermer";
             this.BTN_Fermer.Size = new System.Drawing.Size(75, 23);
             this.BTN_Fermer.TabIndex = 1;
             this.BTN_Fermer.Text = "Fermer";
             this.BTN_Fermer.UseVisualStyleBackColor = true;
+            this.BTN_Fermer.Click += new System.EventHandler(this.BTN_Fermer_Click);
             // 
             // BTN_Ajouter
             // 

@@ -67,6 +67,7 @@
             // 
             // BTN_Ok
             // 
+            this.BTN_Ok.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.BTN_Ok.Location = new System.Drawing.Point(33, 186);
             this.BTN_Ok.Name = "BTN_Ok";
             this.BTN_Ok.Size = new System.Drawing.Size(75, 23);

@@ -48,7 +48,7 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2
                 if (conn.State.ToString() == "Open")
                 {
                     Cursor = Cursors.Default;
-                    Gestion_Livres fd = new Gestion_Livres();
+                    Form_Adherents fd = new Form_Adherents();
                     fd.conn = conn;
 
                     this.Hide();

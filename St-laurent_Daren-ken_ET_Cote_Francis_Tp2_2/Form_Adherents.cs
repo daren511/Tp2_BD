@@ -31,8 +31,8 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2
 
                 try
                 {
-                    OracleCommand oraAjout = new OracleCommand("GestionEmployes", conn);
-                    oraAjout.CommandText = "GestionAdherent.Insertion";
+                    OracleCommand oraAjout = new OracleCommand("GestionAdherents", conn);
+                    oraAjout.CommandText = "GestionAdherents.Insertion";
                     oraAjout.CommandType = CommandType.StoredProcedure;
 
                     OracleParameter OraParaNom = new OracleParameter("PNom", OracleDbType.Varchar2, 40);
@@ -47,6 +47,9 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2
 
                     oraAjout.Parameters.Add(OraParaNom);
                     oraAjout.Parameters.Add(OraParaPrenom);
+
+                    oraAjout.ExecuteNonQuery();
+                    ReloadDGV();
                 }
                 catch (OracleException ex)
                 {
@@ -77,14 +80,23 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2
                     OracleParameter paramNom = new OracleParameter("Pnom", OracleDbType.Varchar2, 40);
                     OracleParameter paramPrenom = new OracleParameter("PPrenom", OracleDbType.Varchar2, 40);
 
+                    paramNumAdherent.Direction = ParameterDirection.Input;
+                    paramNom.Direction = ParameterDirection.Input;
+                    paramPrenom.Direction = ParameterDirection.Input;
+
+
                     paramNumAdherent.Value = Modifier.numAdherent;
                     paramNom.Value = Modifier.nomAdherent;
                     paramPrenom.Value = Modifier.prenomAdherent;
 
 
+                    oraUpdate.Parameters.Add(paramNumAdherent);
                     oraUpdate.Parameters.Add(paramNom);
                     oraUpdate.Parameters.Add(paramPrenom);
-                    oraUpdate.Parameters.Add(paramNumAdherent);
+                    
+
+                    oraUpdate.ExecuteNonQuery();
+                    ReloadDGV();
                 }
                 catch (OracleException ex)
                 {
@@ -99,7 +111,7 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2
         {
             try
             {
-                OracleCommand oraDelete = new OracleCommand("GestionAdherent", conn);
+                OracleCommand oraDelete = new OracleCommand("GestionAdherents", conn);
                 oraDelete.CommandText = "GestionAdherents.Supprimer";
                 oraDelete.CommandType = CommandType.StoredProcedure;
 
@@ -109,6 +121,7 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2
                 oraDelete.Parameters.Add(OraParaNumAdherent);
 
                 oraDelete.ExecuteNonQuery();
+                ReloadDGV();
             }
             catch (OracleException ex)
             {
@@ -155,6 +168,11 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2
         private void Form_Adherents_Load(object sender, EventArgs e)
         {
             ReloadDGV();
+        }
+
+        private void BTN_Fermer_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
     }
