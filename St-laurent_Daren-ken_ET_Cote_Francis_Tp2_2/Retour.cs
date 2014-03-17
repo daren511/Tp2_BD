@@ -47,7 +47,7 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2_2
 
 
                     OraNumPret.Value = Ajouter.numPret;
-                    OraDateRetourReel.Value = Ajouter.DateTime.Parse(Ajouter.dateEmpruntReel);
+                    OraDateRetourReel.Value = DateTime.Parse(Ajouter.dateEmpruntReel);
 
 
                     oraAjout.Parameters.Add(OraNumPret);
