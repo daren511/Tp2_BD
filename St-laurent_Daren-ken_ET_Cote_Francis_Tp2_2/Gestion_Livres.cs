@@ -98,7 +98,7 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2
                 {
                     if (ex.Number == 2292)
                     {
-                        MessageBox.Show("TBD", "Erreur 2292", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Le Livre à été loué", "Erreur 2292", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
 
