@@ -51,8 +51,8 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2_2
 
                     OraNumExemplaire.Value = Ajouter.numExemplaire;
                     OraNumAdherent.Value = Ajouter.numAdherent;
-                    OraDateEmprunt.Value = Ajouter.DateTime.Parse(Ajouter.dateEmprunt);
-                    OraDateRetourPrevu.Value = Ajouter.DateTime.Parse(Ajouter.dateRetourPrevu);
+                    OraDateEmprunt.Value = DateTime.Parse(Ajouter.dateEmprunt);
+                    OraDateRetourPrevu.Value = DateTime.Parse(Ajouter.dateRetourPrevu);
 
                     oraAjout.Parameters.Add(OraNumExemplaire);
                     oraAjout.Parameters.Add(OraNumAdherent);
@@ -64,22 +64,22 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2_2
                 }
                 catch (OracleException ex)
                 {
-                    MessageBox.Show(ex.Message.ToString());
+                    ErrorMessage(ex);
                 }
 
             }
         }
-     
+
 
         private void BTN_Modifier_Click(object sender, EventArgs e)
         {
             Emprunts_Ajouter Modifier = new Emprunts_Ajouter();
             Modifier.conn = this.conn;
             Modifier.Text = "Modification";
-            Modifier.numExemplaire = DGV_Emprunts.SelectedRows[0].Cells[0].Value.ToString();
-            Modifier.numAdherent = DGV_Emprunts.SelectedRows[0].Cells[1].Value.ToString();
-            Modifier.dateEmprunt = DGV_Emprunts.SelectedRows[0].Cells[2].Value.ToString();
-            Modifier.dateRetourPrevu = DGV_Emprunts.SelectedRows[0].Cells[3].Value.ToString();
+            Modifier.numAdherent = DGV_Emprunts.SelectedRows[0].Cells[0].Value.ToString();
+            Modifier.numExemplaire = DGV_Emprunts.SelectedRows[0].Cells[2].Value.ToString();
+            Modifier.dateEmprunt = DGV_Emprunts.SelectedRows[0].Cells[3].Value.ToString();
+            Modifier.dateRetourPrevu = DGV_Emprunts.SelectedRows[0].Cells[4].Value.ToString();
             if (Modifier.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
 
@@ -98,11 +98,11 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2_2
                     OraNumAdherent.Direction = ParameterDirection.Input;
                     OraDateEmprunt.Direction = ParameterDirection.Input;
                     OraDateRetourPrevu.Direction = ParameterDirection.Input;
-                    
+
                     OraNumExemplaire.Value = Modifier.numExemplaire;
                     OraNumAdherent.Value = Modifier.numAdherent;
-                    OraDateEmprunt.Value = Modifier.DateTime.Parse(Modifier.dateEmprunt);
-                    OraDateRetourPrevu.Value = Modifier.DateTime.Parse(Modifier.dateRetourPrevu);
+                    OraDateEmprunt.Value = DateTime.Parse(Modifier.dateEmprunt);
+                    OraDateRetourPrevu.Value = DateTime.Parse(Modifier.dateRetourPrevu);
 
                     oraAjout.Parameters.Add(OraNumExemplaire);
                     oraAjout.Parameters.Add(OraNumAdherent);
@@ -148,7 +148,7 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2_2
             try
             {
                 OracleCommand oraSelect = new OracleCommand("GestionEmprunts", conn);
-                oraSelect.CommandText = "GestionEmprunts.ConsulEmprunts";
+                oraSelect.CommandText = "GestionEmprunts.ConsultEmprunts";
                 oraSelect.CommandType = CommandType.StoredProcedure;
 
                 //Retour
@@ -161,14 +161,59 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2_2
                 AdherentDGV = new DataSet();
                 oraAdapter.Fill(AdherentDGV);
                 DGV_Emprunts.DataSource = AdherentDGV.Tables[0];
+
+                updateControls();
             }
             catch (OracleException ex)
             {
                 MessageBox.Show(ex.Message.ToString());
             }
         }
-    }
 
+        private void BTN_Close_Click(object sender, EventArgs e)
+        {
+            if (callBackForm != null)
+                callBackForm.Show();
+            this.Close();
+        }
+
+        private void Emprunts_Load(object sender, EventArgs e)
+        {
+            ReloadDGV();
+            updateControls();
+        }
+
+        private void updateControls()
+        {
+            if (DGV_Emprunts.RowCount > 0)
+            {
+                BTN_Modifier.Enabled = true;
+                BTN_Supprimer.Enabled = true;
+            }
+            else
+            {
+                BTN_Modifier.Enabled = false;
+                BTN_Supprimer.Enabled = false;
+            }
+        }
+        private void ErrorMessage(OracleException Ex)
+        {
+            switch (Ex.Number)
+            {
+                case 20325:
+                    MessageBox.Show("Le livre n'est pas disponible", "Erreur 20325", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    break;
+                default: MessageBox.Show(Ex.Message.ToString());
+                    break;
+            }
+        }
+
+        private void Emprunts_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (callBackForm != null)
+                callBackForm.Show();
+        }
+    }
 }
 
     

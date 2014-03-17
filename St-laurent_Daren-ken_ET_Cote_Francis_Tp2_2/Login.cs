@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Oracle.DataAccess.Client;
+using St_laurent_Daren_ken_ET_Cote_Francis_Tp2_2;
 
 namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2
 {
@@ -48,12 +49,12 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2
                 if (conn.State.ToString() == "Open")
                 {
                     Cursor = Cursors.Default;
-                    Form_Adherents fd = new Form_Adherents();
-                    fd.conn = conn;
+                    Principal fp = new Principal();
+                    fp.conn = conn;
 
                     this.Hide();
-                    fd.callBackForm = this;
-                    fd.Show();
+                    fp.callBackForm = this;
+                    fp.Show();
                     LB_Error.Text = "";
                     LB_MDP.ForeColor = Color.Black;
                     LB_Username.ForeColor = Color.Black;

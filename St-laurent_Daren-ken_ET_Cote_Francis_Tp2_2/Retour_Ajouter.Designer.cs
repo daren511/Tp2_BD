@@ -102,8 +102,10 @@
             this.Controls.Add(this.BTN_OK);
             this.Controls.Add(this.DTP_DateRetourReel);
             this.Controls.Add(this.CB_NumPret);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(258, 202);
             this.Name = "Retour_Ajouter";
             this.Text = "Retour_Ajouter";
             this.Load += new System.EventHandler(this.Retour_Ajouter_Load);

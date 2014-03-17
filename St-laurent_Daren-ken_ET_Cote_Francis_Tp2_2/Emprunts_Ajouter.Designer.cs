@@ -58,6 +58,7 @@
             // 
             // DTP_DateEmprunt
             // 
+            this.DTP_DateEmprunt.Enabled = false;
             this.DTP_DateEmprunt.Location = new System.Drawing.Point(129, 115);
             this.DTP_DateEmprunt.Name = "DTP_DateEmprunt";
             this.DTP_DateEmprunt.Size = new System.Drawing.Size(115, 20);
@@ -72,6 +73,7 @@
             // 
             // BTN_OK
             // 
+            this.BTN_OK.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.BTN_OK.Location = new System.Drawing.Point(22, 219);
             this.BTN_OK.Name = "BTN_OK";
             this.BTN_OK.Size = new System.Drawing.Size(75, 23);

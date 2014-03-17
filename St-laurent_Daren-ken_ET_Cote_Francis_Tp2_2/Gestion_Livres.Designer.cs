@@ -30,15 +30,15 @@
         {
             this.components = new System.ComponentModel.Container();
             this.DGV_Livres = new System.Windows.Forms.DataGridView();
-            this.BTN_Close = new System.Windows.Forms.Button();
-            this.BTN_Ajout = new System.Windows.Forms.Button();
-            this.BTN_Modifier = new System.Windows.Forms.Button();
-            this.BTN_Delete = new System.Windows.Forms.Button();
             this.CMS_Livres = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.consulterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.modifierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.supprimerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.BTN_Close = new System.Windows.Forms.Button();
+            this.BTN_Ajout = new System.Windows.Forms.Button();
+            this.BTN_Modifier = new System.Windows.Forms.Button();
+            this.BTN_Delete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Livres)).BeginInit();
             this.CMS_Livres.SuspendLayout();
             this.SuspendLayout();
@@ -58,6 +58,39 @@
             this.DGV_Livres.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DGV_Livres.Size = new System.Drawing.Size(397, 216);
             this.DGV_Livres.TabIndex = 0;
+            // 
+            // CMS_Livres
+            // 
+            this.CMS_Livres.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.consulterToolStripMenuItem,
+            this.toolStripMenuItem1,
+            this.modifierToolStripMenuItem,
+            this.supprimerToolStripMenuItem});
+            this.CMS_Livres.Name = "CMS_Livres";
+            this.CMS_Livres.Size = new System.Drawing.Size(130, 76);
+            // 
+            // consulterToolStripMenuItem
+            // 
+            this.consulterToolStripMenuItem.Name = "consulterToolStripMenuItem";
+            this.consulterToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.consulterToolStripMenuItem.Text = "Consulter";
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(126, 6);
+            // 
+            // modifierToolStripMenuItem
+            // 
+            this.modifierToolStripMenuItem.Name = "modifierToolStripMenuItem";
+            this.modifierToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.modifierToolStripMenuItem.Text = "Modifier";
+            // 
+            // supprimerToolStripMenuItem
+            // 
+            this.supprimerToolStripMenuItem.Name = "supprimerToolStripMenuItem";
+            this.supprimerToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.supprimerToolStripMenuItem.Text = "Supprimer";
             // 
             // BTN_Close
             // 
@@ -101,39 +134,6 @@
             this.BTN_Delete.UseVisualStyleBackColor = true;
             this.BTN_Delete.Click += new System.EventHandler(this.BTN_Delete_Click);
             // 
-            // CMS_Livres
-            // 
-            this.CMS_Livres.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.consulterToolStripMenuItem,
-            this.toolStripMenuItem1,
-            this.modifierToolStripMenuItem,
-            this.supprimerToolStripMenuItem});
-            this.CMS_Livres.Name = "CMS_Livres";
-            this.CMS_Livres.Size = new System.Drawing.Size(153, 98);
-            // 
-            // consulterToolStripMenuItem
-            // 
-            this.consulterToolStripMenuItem.Name = "consulterToolStripMenuItem";
-            this.consulterToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.consulterToolStripMenuItem.Text = "Consulter";
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(149, 6);
-            // 
-            // modifierToolStripMenuItem
-            // 
-            this.modifierToolStripMenuItem.Name = "modifierToolStripMenuItem";
-            this.modifierToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.modifierToolStripMenuItem.Text = "Modifier";
-            // 
-            // supprimerToolStripMenuItem
-            // 
-            this.supprimerToolStripMenuItem.Name = "supprimerToolStripMenuItem";
-            this.supprimerToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.supprimerToolStripMenuItem.Text = "Supprimer";
-            // 
             // Gestion_Livres
             // 
             this.AcceptButton = this.BTN_Close;
@@ -145,6 +145,9 @@
             this.Controls.Add(this.BTN_Ajout);
             this.Controls.Add(this.BTN_Close);
             this.Controls.Add(this.DGV_Livres);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(530, 278);
             this.Name = "Gestion_Livres";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestion des livres";

@@ -23,55 +23,17 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2_2
         {
             InitializeComponent();
         }
-
-        private void BTN_Ajouter_Click(object sender, EventArgs e)
-        {
-            Retour_Ajouter Ajouter = new Retour_Ajouter();
-            Ajouter.conn = this.conn;
-            Ajouter.Text = "Ajout";
-
-            if (Ajouter.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            {
-
-                try
-                {
-                    OracleCommand oraAjout = new OracleCommand("GestionRetours", conn);
-                    oraAjout.CommandText = "GestionRetours.Insertion";
-                    oraAjout.CommandType = CommandType.StoredProcedure;
-
-                    OracleParameter OraNumPret = new OracleParameter("PNumPret", OracleDbType.Int32);
-                    OracleParameter OraDateRetourReel = new OracleParameter("PDateRetourReel", OracleDbType.Date);
-
-                    OraNumPret.Direction = ParameterDirection.Input;
-                    OraDateRetourReel.Direction = ParameterDirection.Input;
-
-
-                    OraNumPret.Value = Ajouter.numPret;
-                    OraDateRetourReel.Value = DateTime.Parse(Ajouter.dateEmpruntReel);
-
-
-                    oraAjout.Parameters.Add(OraNumPret);
-                    oraAjout.Parameters.Add(OraDateRetourReel);
-
-                    oraAjout.ExecuteNonQuery();
-                    ReloadDGV();
-                }
-                catch (OracleException ex)
-                {
-                    MessageBox.Show(ex.Message.ToString());
-                }
-
-            }
-
-        }
-
         private void BTN_Modifier_Click(object sender, EventArgs e)
         {
             Retour_Ajouter Modifier = new Retour_Ajouter();
             Modifier.conn = this.conn;
             Modifier.Text = "Modification";
             Modifier.numPret = DGV_Retour.SelectedRows[0].Cells[0].Value.ToString();
-            Modifier.dateEmpruntReel = DGV_Retour.SelectedRows[0].Cells[1].Value.ToString();
+            if (DGV_Retour.SelectedRows[0].Cells[1].Value.ToString() != "")
+                //MessageBox.Show(DGV_Retour.SelectedRows[0].Cells[1].Value.ToString());
+                Modifier.dateEmpruntReel = DGV_Retour.SelectedRows[0].Cells[1].Value.ToString();
+            else
+                Modifier.dateEmpruntReel = DateTime.Today.ToString();
 
             if (Modifier.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
@@ -90,7 +52,7 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2_2
 
 
                     OraNumPret.Value = Modifier.numPret;
-                    OraDateRetourReel.Value = Modifier.DateTime.Parse(Modifier.dateEmpruntReel);
+                    OraDateRetourReel.Value = DateTime.Parse(Modifier.dateEmpruntReel);
 
 
                     oraAjout.Parameters.Add(OraNumPret);
@@ -134,8 +96,8 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2_2
         {
             try
             {
-                OracleCommand oraSelect = new OracleCommand("GestionEmprunts", conn);
-                oraSelect.CommandText = "GestionEmprunts.ConsulEmprunts";
+                OracleCommand oraSelect = new OracleCommand("GestionRetour", conn);
+                oraSelect.CommandText = "GestionRetours.ConsulRetour";
                 oraSelect.CommandType = CommandType.StoredProcedure;
 
                 //Retour
@@ -159,6 +121,18 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2_2
         {
             if (callBackForm != null)
                 callBackForm.Show();
+        }
+
+        private void BTN_Cancel_Click(object sender, EventArgs e)
+        {
+            if(callBackForm != null)
+            callBackForm.Show();
+            this.Close();
+        }
+
+        private void Retour_Load(object sender, EventArgs e)
+        {
+            ReloadDGV();
         }
     }
 }
