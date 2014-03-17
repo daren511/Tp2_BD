@@ -38,6 +38,7 @@
             // 
             // BTN_Fermer
             // 
+            this.BTN_Fermer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.BTN_Fermer.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.BTN_Fermer.Location = new System.Drawing.Point(90, 190);
             this.BTN_Fermer.Name = "BTN_Fermer";
@@ -49,6 +50,7 @@
             // 
             // BTN_Ajouter
             // 
+            this.BTN_Ajouter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.BTN_Ajouter.Location = new System.Drawing.Point(280, 12);
             this.BTN_Ajouter.Name = "BTN_Ajouter";
             this.BTN_Ajouter.Size = new System.Drawing.Size(75, 23);
@@ -59,6 +61,7 @@
             // 
             // BTN_Modif
             // 
+            this.BTN_Modif.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.BTN_Modif.Location = new System.Drawing.Point(280, 73);
             this.BTN_Modif.Name = "BTN_Modif";
             this.BTN_Modif.Size = new System.Drawing.Size(75, 23);
@@ -71,6 +74,9 @@
             // 
             this.DGV_Adherent.AllowUserToAddRows = false;
             this.DGV_Adherent.AllowUserToDeleteRows = false;
+            this.DGV_Adherent.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.DGV_Adherent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGV_Adherent.Location = new System.Drawing.Point(12, 9);
             this.DGV_Adherent.MultiSelect = false;
@@ -82,6 +88,7 @@
             // 
             // BTN_Supprimer
             // 
+            this.BTN_Supprimer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.BTN_Supprimer.Location = new System.Drawing.Point(280, 136);
             this.BTN_Supprimer.Name = "BTN_Supprimer";
             this.BTN_Supprimer.Size = new System.Drawing.Size(75, 23);
@@ -103,7 +110,9 @@
             this.Controls.Add(this.BTN_Fermer);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(397, 263);
             this.Name = "Form_Adherents";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Form_Adherents";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form_Adherents_FormClosed);
             this.Load += new System.EventHandler(this.Form_Adherents_Load);

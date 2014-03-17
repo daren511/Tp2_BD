@@ -124,6 +124,10 @@
             this.Controls.Add(this.LB_Username);
             this.Controls.Add(this.BTN_Quitter);
             this.Controls.Add(this.BTN_Connect);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(455, 199);
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
