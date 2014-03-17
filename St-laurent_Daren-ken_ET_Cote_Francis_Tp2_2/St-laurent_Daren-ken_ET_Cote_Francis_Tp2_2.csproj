@@ -45,6 +45,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Emprunts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Emprunts.Designer.cs">
+      <DependentUpon>Emprunts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Emprunts_Ajouter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Emprunts_Ajouter.Designer.cs">
+      <DependentUpon>Emprunts_Ajouter.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_Adherents.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,6 +89,24 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Retour.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Retour.Designer.cs">
+      <DependentUpon>Retour.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Retour_Ajouter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Retour_Ajouter.Designer.cs">
+      <DependentUpon>Retour_Ajouter.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Emprunts.resx">
+      <DependentUpon>Emprunts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Emprunts_Ajouter.resx">
+      <DependentUpon>Emprunts_Ajouter.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form_Adherents.resx">
       <DependentUpon>Form_Adherents.cs</DependentUpon>
     </EmbeddedResource>
@@ -101,6 +131,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Retour.resx">
+      <DependentUpon>Retour.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Retour_Ajouter.resx">
+      <DependentUpon>Retour_Ajouter.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

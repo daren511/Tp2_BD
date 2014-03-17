@@ -58,9 +58,14 @@
             // 
             // DGV_Emprunts
             // 
+            this.DGV_Emprunts.AllowUserToAddRows = false;
+            this.DGV_Emprunts.AllowUserToDeleteRows = false;
+            this.DGV_Emprunts.AllowUserToResizeColumns = false;
+            this.DGV_Emprunts.AllowUserToResizeRows = false;
             this.DGV_Emprunts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGV_Emprunts.Location = new System.Drawing.Point(12, 12);
             this.DGV_Emprunts.Name = "DGV_Emprunts";
+            this.DGV_Emprunts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DGV_Emprunts.Size = new System.Drawing.Size(346, 205);
             this.DGV_Emprunts.TabIndex = 2;
             // 
