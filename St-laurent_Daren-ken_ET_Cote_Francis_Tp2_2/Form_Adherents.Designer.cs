@@ -113,7 +113,6 @@
             this.MinimumSize = new System.Drawing.Size(495, 307);
             this.Name = "Form_Adherents";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Form_Adherents";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form_Adherents_FormClosed);
             this.Load += new System.EventHandler(this.Form_Adherents_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Adherent)).EndInit();
