@@ -68,9 +68,9 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2
             Modifier.nomAdherent = DGV_Adherent.SelectedRows[0].Cells[1].Value.ToString();
             Modifier.prenomAdherent = DGV_Adherent.SelectedRows[0].Cells[2].Value.ToString();
 
-            if(Modifier.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            if (Modifier.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                try 
+                try
                 {
                     OracleCommand oraUpdate = new OracleCommand("GestionAdherents", conn);
                     oraUpdate.CommandText = "GestionAdherents.ModifAdherent";
@@ -93,7 +93,7 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2
                     oraUpdate.Parameters.Add(paramNumAdherent);
                     oraUpdate.Parameters.Add(paramNom);
                     oraUpdate.Parameters.Add(paramPrenom);
-                    
+
 
                     oraUpdate.ExecuteNonQuery();
                     ReloadDGV();
@@ -109,25 +109,30 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2
 
         private void BTN_Supprimer_Click(object sender, EventArgs e)
         {
-            try
+            DialogResult Confirmation;
+            Confirmation = MessageBox.Show("Voulez-vous vraiment effacer cette entrée ?", "Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (Confirmation == System.Windows.Forms.DialogResult.OK)
             {
-                OracleCommand oraDelete = new OracleCommand("GestionAdherents", conn);
-                oraDelete.CommandText = "GestionAdherents.Supprimer";
-                oraDelete.CommandType = CommandType.StoredProcedure;
+                try
+                {
+                    OracleCommand oraDelete = new OracleCommand("GestionAdherents", conn);
+                    oraDelete.CommandText = "GestionAdherents.Supprimer";
+                    oraDelete.CommandType = CommandType.StoredProcedure;
 
-                OracleParameter OraParaNumAdherent = new OracleParameter("PNumAdherent", OracleDbType.Int32);
-                OraParaNumAdherent.Value = DGV_Adherent.SelectedRows[0].Cells[0].Value.ToString();
-                OraParaNumAdherent.Direction = ParameterDirection.Input;
-                oraDelete.Parameters.Add(OraParaNumAdherent);
+                    OracleParameter OraParaNumAdherent = new OracleParameter("PNumAdherent", OracleDbType.Int32);
+                    OraParaNumAdherent.Value = DGV_Adherent.SelectedRows[0].Cells[0].Value.ToString();
+                    OraParaNumAdherent.Direction = ParameterDirection.Input;
+                    oraDelete.Parameters.Add(OraParaNumAdherent);
 
-                oraDelete.ExecuteNonQuery();
-                ReloadDGV();
-            }
-            catch (OracleException ex)
-            {
+                    oraDelete.ExecuteNonQuery();
+                    ReloadDGV();
+                }
+                catch (OracleException ex)
+                {
 
-                MessageBox.Show(ex.Message.ToString());
+                    MessageBox.Show(ex.Message.ToString());
 
+                }
             }
 
         }
@@ -140,7 +145,7 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2
 
         private void ReloadDGV()
         {
-            try 
+            try
             {
                 OracleCommand oraSelect = new OracleCommand("GestionAdherents", conn);
                 oraSelect.CommandText = "GestionAdherents.Consuladherent";
@@ -163,7 +168,7 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2
             }
         }
 
-        
+
 
         private void Form_Adherents_Load(object sender, EventArgs e)
         {

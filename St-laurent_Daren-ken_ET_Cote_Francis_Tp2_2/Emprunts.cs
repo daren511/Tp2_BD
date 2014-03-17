@@ -121,25 +121,31 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2_2
 
         private void BTN_Supprimer_Click(object sender, EventArgs e)
         {
-            try
+            DialogResult Confirmation;
+            Confirmation = MessageBox.Show("Voulez-vous vraiment effacer cette entrée ?", "Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+            if (Confirmation == System.Windows.Forms.DialogResult.OK)
             {
-                OracleCommand oraDelete = new OracleCommand("GestionEmprunts", conn);
-                oraDelete.CommandText = "GestionEmprunts.Supprimer";
-                oraDelete.CommandType = CommandType.StoredProcedure;
+                try
+                {
+                    OracleCommand oraDelete = new OracleCommand("GestionEmprunts", conn);
+                    oraDelete.CommandText = "GestionEmprunts.Supprimer";
+                    oraDelete.CommandType = CommandType.StoredProcedure;
 
-                OracleParameter OraParaNumPret = new OracleParameter("PNumPret", OracleDbType.Int32);
-                OraParaNumPret.Value = DGV_Emprunts.SelectedRows[0].Cells[0].Value.ToString();
-                OraParaNumPret.Direction = ParameterDirection.Input;
-                oraDelete.Parameters.Add(OraParaNumPret);
+                    OracleParameter OraParaNumPret = new OracleParameter("PNumPret", OracleDbType.Int32);
+                    OraParaNumPret.Value = DGV_Emprunts.SelectedRows[0].Cells[0].Value.ToString();
+                    OraParaNumPret.Direction = ParameterDirection.Input;
+                    oraDelete.Parameters.Add(OraParaNumPret);
 
-                oraDelete.ExecuteNonQuery();
-                ReloadDGV();
-            }
-            catch (OracleException ex)
-            {
+                    oraDelete.ExecuteNonQuery();
+                    ReloadDGV();
+                }
+                catch (OracleException ex)
+                {
 
-                MessageBox.Show(ex.Message.ToString());
+                    MessageBox.Show(ex.Message.ToString());
 
+                }
             }
         }
 
