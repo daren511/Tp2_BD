@@ -45,6 +45,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Ajouter_Exemplaire.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ajouter_Exemplaire.Designer.cs">
+      <DependentUpon>Ajouter_Exemplaire.cs</DependentUpon>
+    </Compile>
     <Compile Include="Emprunts.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -56,6 +62,12 @@
     </Compile>
     <Compile Include="Emprunts_Ajouter.Designer.cs">
       <DependentUpon>Emprunts_Ajouter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Exemplaires.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Exemplaires.Designer.cs">
+      <DependentUpon>Exemplaires.cs</DependentUpon>
     </Compile>
     <Compile Include="Form_Adherents.cs">
       <SubType>Form</SubType>
@@ -107,11 +119,17 @@
     <Compile Include="Retour_Ajouter.Designer.cs">
       <DependentUpon>Retour_Ajouter.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Ajouter_Exemplaire.resx">
+      <DependentUpon>Ajouter_Exemplaire.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Emprunts.resx">
       <DependentUpon>Emprunts.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Emprunts_Ajouter.resx">
       <DependentUpon>Emprunts_Ajouter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Exemplaires.resx">
+      <DependentUpon>Exemplaires.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_Adherents.resx">
       <DependentUpon>Form_Adherents.cs</DependentUpon>

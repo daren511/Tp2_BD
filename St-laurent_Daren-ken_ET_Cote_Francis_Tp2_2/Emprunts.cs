@@ -123,41 +123,6 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2_2
             }
         }
 
-        private void BTN_Supprimer_Click(object sender, EventArgs e)
-        {
-            DialogResult Confirmation;
-            Confirmation = MessageBox.Show("Voulez-vous vraiment effacer cette entrée ?", "Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-
-            if (Confirmation == System.Windows.Forms.DialogResult.OK)
-            {
-                try
-                {
-                    OracleCommand oraDelete = new OracleCommand("GestionEmprunts", conn);
-                    oraDelete.CommandText = "GestionEmprunts.Supprimer";
-                    oraDelete.CommandType = CommandType.StoredProcedure;
-
-                    OracleParameter OraParaNumPret = new OracleParameter("PNumPret", OracleDbType.Int32);
-                    OraParaNumPret.Value = DGV_Emprunts.SelectedRows[0].Cells[0].Value.ToString();
-                    OraParaNumPret.Direction = ParameterDirection.Input;
-                    oraDelete.Parameters.Add(OraParaNumPret);
-
-                    oraDelete.ExecuteNonQuery();
-                    ReloadDGV();
-                }
-                catch (OracleException ex)
-                {
-                    if (ex.Number == 2292)
-                    {
-                        MessageBox.Show("on ne peut pas effacer un emprunt", "Erreur 2292", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Une erreur non-gerer est survenue : " + ex.Number.ToString() + ":" + ex.Message.ToString(), ex.Number.ToString(), MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-            }
-        }
-
         private void ReloadDGV()
         {
             try
@@ -216,7 +181,8 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2_2
                 case 20325:
                     MessageBox.Show("Le livre n'est pas disponible", "Erreur 20325", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     break;
-                default: MessageBox.Show(Ex.Message.ToString());
+                default:
+                    MessageBox.Show("Une erreur non-gerer est survenue : " + Ex.Number.ToString() + ":" + Ex.Message.ToString(), Ex.Number.ToString(), MessageBoxButtons.OK, MessageBoxIcon.Error);
                     break;
             }
         }

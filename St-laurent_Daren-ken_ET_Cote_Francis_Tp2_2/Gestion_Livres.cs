@@ -356,5 +356,19 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2
                 MessageBox.Show(ex.Message.ToString());
             }
         }
+        private void callFormExemplaires()
+        {
+            Exemplaires fe = new Exemplaires(DGV_Livres.SelectedRows[0].Cells[0].Value.ToString());
+            fe.conn = conn;
+
+            this.Hide();
+            fe.callBackForm = this;
+            fe.ShowDialog();
+        }
+
+        private void consulterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            callFormExemplaires();
+        }
     }
 }

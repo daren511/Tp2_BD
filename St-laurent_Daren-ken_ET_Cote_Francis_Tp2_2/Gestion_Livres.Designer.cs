@@ -59,8 +59,9 @@
             // 
             this.DGV_Livres.AllowUserToAddRows = false;
             this.DGV_Livres.AllowUserToDeleteRows = false;
-            this.DGV_Livres.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.DGV_Livres.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.DGV_Livres.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGV_Livres.ContextMenuStrip = this.CMS_Livres;
             this.DGV_Livres.Location = new System.Drawing.Point(12, 12);
@@ -86,6 +87,7 @@
             this.consulterToolStripMenuItem.Name = "consulterToolStripMenuItem";
             this.consulterToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.consulterToolStripMenuItem.Text = "Consulter";
+            this.consulterToolStripMenuItem.Click += new System.EventHandler(this.consulterToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
@@ -151,7 +153,7 @@
             // 
             // BTN_Refresh
             // 
-            this.BTN_Refresh.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.BTN_Refresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.BTN_Refresh.Location = new System.Drawing.Point(430, 189);
             this.BTN_Refresh.Name = "BTN_Refresh";
             this.BTN_Refresh.Size = new System.Drawing.Size(75, 42);
@@ -162,6 +164,7 @@
             // 
             // BTN_Auteur
             // 
+            this.BTN_Auteur.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.BTN_Auteur.Location = new System.Drawing.Point(430, 123);
             this.BTN_Auteur.Name = "BTN_Auteur";
             this.BTN_Auteur.Size = new System.Drawing.Size(75, 41);
@@ -172,6 +175,7 @@
             // 
             // BTN_PlusEmprunte
             // 
+            this.BTN_PlusEmprunte.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.BTN_PlusEmprunte.Location = new System.Drawing.Point(524, 151);
             this.BTN_PlusEmprunte.Name = "BTN_PlusEmprunte";
             this.BTN_PlusEmprunte.Size = new System.Drawing.Size(75, 42);
@@ -182,6 +186,7 @@
             // 
             // TB_Rechercher
             // 
+            this.TB_Rechercher.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.TB_Rechercher.Location = new System.Drawing.Point(415, 249);
             this.TB_Rechercher.Name = "TB_Rechercher";
             this.TB_Rechercher.Size = new System.Drawing.Size(156, 20);
@@ -189,6 +194,7 @@
             // 
             // BTN_Rechercher
             // 
+            this.BTN_Rechercher.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.BTN_Rechercher.Location = new System.Drawing.Point(455, 275);
             this.BTN_Rechercher.Name = "BTN_Rechercher";
             this.BTN_Rechercher.Size = new System.Drawing.Size(87, 23);
@@ -199,6 +205,7 @@
             // 
             // DTP_DateFin
             // 
+            this.DTP_DateFin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.DTP_DateFin.Location = new System.Drawing.Point(610, 44);
             this.DTP_DateFin.Name = "DTP_DateFin";
             this.DTP_DateFin.Size = new System.Drawing.Size(121, 20);
@@ -206,6 +213,7 @@
             // 
             // DTP_DateDebut
             // 
+            this.DTP_DateDebut.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.DTP_DateDebut.Location = new System.Drawing.Point(610, 79);
             this.DTP_DateDebut.Name = "DTP_DateDebut";
             this.DTP_DateDebut.Size = new System.Drawing.Size(121, 20);
@@ -213,6 +221,7 @@
             // 
             // CB_NumAdherent
             // 
+            this.CB_NumAdherent.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.CB_NumAdherent.FormattingEnabled = true;
             this.CB_NumAdherent.Location = new System.Drawing.Point(610, 12);
             this.CB_NumAdherent.Name = "CB_NumAdherent";
@@ -221,6 +230,7 @@
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(521, 17);
             this.label1.Name = "label1";
@@ -230,6 +240,7 @@
             // 
             // label2
             // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(521, 50);
             this.label2.Name = "label2";
@@ -239,6 +250,7 @@
             // 
             // label3
             // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(524, 85);
             this.label3.Name = "label3";
@@ -248,6 +260,7 @@
             // 
             // BTN_AdherentPeriode
             // 
+            this.BTN_AdherentPeriode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.BTN_AdherentPeriode.Location = new System.Drawing.Point(553, 104);
             this.BTN_AdherentPeriode.Name = "BTN_AdherentPeriode";
             this.BTN_AdherentPeriode.Size = new System.Drawing.Size(156, 23);
@@ -279,8 +292,6 @@
             this.Controls.Add(this.BTN_Ajout);
             this.Controls.Add(this.BTN_Close);
             this.Controls.Add(this.DGV_Livres);
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(759, 348);
             this.Name = "Gestion_Livres";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

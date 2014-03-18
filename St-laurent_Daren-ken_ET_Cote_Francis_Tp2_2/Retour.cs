@@ -30,7 +30,6 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2_2
             Modifier.Text = "Modification";
             Modifier.numPret = DGV_Retour.SelectedRows[0].Cells[0].Value.ToString();
             if (DGV_Retour.SelectedRows[0].Cells[1].Value.ToString() != "")
-                //MessageBox.Show(DGV_Retour.SelectedRows[0].Cells[1].Value.ToString());
                 Modifier.dateEmpruntReel = DGV_Retour.SelectedRows[0].Cells[1].Value.ToString();
             else
                 Modifier.dateEmpruntReel = DateTime.Today.ToString();
