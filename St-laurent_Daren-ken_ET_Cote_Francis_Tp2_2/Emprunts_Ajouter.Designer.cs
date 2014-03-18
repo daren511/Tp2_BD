@@ -70,6 +70,7 @@
             this.DTP_DateRetourPrevu.Name = "DTP_DateRetourPrevu";
             this.DTP_DateRetourPrevu.Size = new System.Drawing.Size(115, 20);
             this.DTP_DateRetourPrevu.TabIndex = 3;
+            this.DTP_DateRetourPrevu.Value = new System.DateTime(2014, 3, 25, 23, 59, 59, 0);
             // 
             // BTN_OK
             // 

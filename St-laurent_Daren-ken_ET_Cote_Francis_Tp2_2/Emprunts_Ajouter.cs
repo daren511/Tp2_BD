@@ -73,28 +73,31 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2_2
 
         private void Emprunts_Ajouter_Load(object sender, EventArgs e)
         {
+            DTP_DateRetourPrevu.MinDate = DateTime.Today;
+
             OracleCommand oraSelect = new OracleCommand("GestionEmprunts", conn);
             oraSelect.CommandText = "GestionEmprunts.ConsulNumExemplaire";
             oraSelect.CommandType = CommandType.StoredProcedure;
 
-            using (OracleDataReader oraReader = oraSelect.ExecuteReader())
-            {
-                while (oraReader.Read())
-                {
-                    CB_NumExemplaire.Items.Add(oraReader.GetString(0));
-                }
-            }
-            OracleCommand oraSelectAdherent = new OracleCommand("GestionEmprunts", conn);
-            oraSelectAdherent.CommandText = "GestionEmprunts.ConsulNumAdherent";
-            oraSelectAdherent.CommandType = CommandType.StoredProcedure;
+            // A REVOIR!! ON A PAS LE DROIT DE FAIRE SA
+            //using (OracleDataReader oraReader = oraSelect.ExecuteReader())
+            //{
+            //    while (oraReader.Read())
+            //    {
+            //        CB_NumExemplaire.Items.Add(oraReader.GetString(0));
+            //    }
+            //}
+            //OracleCommand oraSelectAdherent = new OracleCommand("GestionEmprunts", conn);
+            //oraSelectAdherent.CommandText = "GestionEmprunts.ConsulNumAdherent";
+            //oraSelectAdherent.CommandType = CommandType.StoredProcedure;
 
-            using (OracleDataReader oraReaderAd = oraSelectAdherent.ExecuteReader())
-            {
-                while (oraReaderAd.Read())
-                {
-                    CB_NumAdherent.Items.Add(oraReaderAd.GetString(0));
-                }
-            }
+            //using (OracleDataReader oraReaderAd = oraSelectAdherent.ExecuteReader())
+            //{
+            //    while (oraReaderAd.Read())
+            //    {
+            //        CB_NumAdherent.Items.Add(oraReaderAd.GetString(0));
+            //    }
+            //}
 
         }
     }
