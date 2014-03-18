@@ -110,6 +110,7 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2_2
                 RetourDGV = new DataSet();
                 oraAdapter.Fill(RetourDGV);
                 DGV_Retour.DataSource = RetourDGV.Tables[0];
+                updateControls();
             }
             catch (OracleException ex)
             {
@@ -133,6 +134,20 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2_2
         private void Retour_Load(object sender, EventArgs e)
         {
             ReloadDGV();
+        }
+
+        private void updateControls()
+        {
+            if (DGV_Retour.RowCount > 0)
+            {
+                BTN_Modifier.Enabled = true;
+                BTN_Supprimer.Enabled = true;
+            }
+            else
+            {
+                BTN_Modifier.Enabled = false;
+                BTN_Supprimer.Enabled = false;
+            }
         }
     }
 }

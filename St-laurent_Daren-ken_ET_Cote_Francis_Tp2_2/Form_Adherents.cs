@@ -161,6 +161,7 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2
                 AdherentDGV = new DataSet();
                 oraAdapter.Fill(AdherentDGV);
                 DGV_Adherent.DataSource = AdherentDGV.Tables[0];
+                updateControls();
             }
             catch (OracleException ex)
             {
@@ -178,6 +179,20 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2
         private void BTN_Fermer_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void updateControls()
+        {
+            if (DGV_Adherent.RowCount > 0)
+            {
+                BTN_Modif.Enabled = true;
+                BTN_Supprimer.Enabled = true;
+            }
+            else
+            {
+                BTN_Modif.Enabled = false;
+                BTN_Supprimer.Enabled = false;
+            }
         }
 
     }
