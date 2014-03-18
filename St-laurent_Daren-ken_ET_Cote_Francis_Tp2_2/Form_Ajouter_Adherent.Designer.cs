@@ -47,7 +47,7 @@
             this.label1.Location = new System.Drawing.Point(12, 133);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(96, 13);
-            this.label1.TabIndex = 0;
+            this.label1.TabIndex = 4;
             this.label1.Text = "Prénom d\'adhérent";
             // 
             // label2
@@ -59,7 +59,7 @@
             this.label2.Location = new System.Drawing.Point(12, 82);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(82, 13);
-            this.label2.TabIndex = 0;
+            this.label2.TabIndex = 2;
             this.label2.Text = "Nom d\'adhérent";
             // 
             // label3
@@ -83,7 +83,7 @@
             this.BTN_Ok.Location = new System.Drawing.Point(33, 186);
             this.BTN_Ok.Name = "BTN_Ok";
             this.BTN_Ok.Size = new System.Drawing.Size(75, 23);
-            this.BTN_Ok.TabIndex = 1;
+            this.BTN_Ok.TabIndex = 6;
             this.BTN_Ok.Text = "Ok";
             this.BTN_Ok.UseVisualStyleBackColor = true;
             // 
@@ -96,7 +96,7 @@
             this.BTN_Cancel.Location = new System.Drawing.Point(145, 186);
             this.BTN_Cancel.Name = "BTN_Cancel";
             this.BTN_Cancel.Size = new System.Drawing.Size(75, 23);
-            this.BTN_Cancel.TabIndex = 1;
+            this.BTN_Cancel.TabIndex = 7;
             this.BTN_Cancel.Text = "Cancel";
             this.BTN_Cancel.UseVisualStyleBackColor = true;
             // 
@@ -109,7 +109,7 @@
             this.TB_NumAdherent.Location = new System.Drawing.Point(121, 27);
             this.TB_NumAdherent.Name = "TB_NumAdherent";
             this.TB_NumAdherent.Size = new System.Drawing.Size(128, 20);
-            this.TB_NumAdherent.TabIndex = 2;
+            this.TB_NumAdherent.TabIndex = 1;
             // 
             // TB_NomAdherent
             // 
@@ -119,7 +119,7 @@
             this.TB_NomAdherent.Location = new System.Drawing.Point(121, 79);
             this.TB_NomAdherent.Name = "TB_NomAdherent";
             this.TB_NomAdherent.Size = new System.Drawing.Size(128, 20);
-            this.TB_NomAdherent.TabIndex = 2;
+            this.TB_NomAdherent.TabIndex = 3;
             // 
             // TB_PrenomAdherent
             // 
@@ -129,7 +129,7 @@
             this.TB_PrenomAdherent.Location = new System.Drawing.Point(121, 130);
             this.TB_PrenomAdherent.Name = "TB_PrenomAdherent";
             this.TB_PrenomAdherent.Size = new System.Drawing.Size(128, 20);
-            this.TB_PrenomAdherent.TabIndex = 2;
+            this.TB_PrenomAdherent.TabIndex = 5;
             // 
             // Form_Ajouter_Adherent
             // 

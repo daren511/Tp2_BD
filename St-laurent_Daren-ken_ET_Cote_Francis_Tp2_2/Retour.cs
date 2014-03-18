@@ -41,7 +41,7 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2_2
                 try
                 {
                     OracleCommand oraAjout = new OracleCommand("GestionRetours", conn);
-                    oraAjout.CommandText = "GestionRetours.Insertion";
+                    oraAjout.CommandText = "GestionRetours.Modifretour";
                     oraAjout.CommandType = CommandType.StoredProcedure;
 
                     OracleParameter OraNumPret = new OracleParameter("PNumPret", OracleDbType.Int32);

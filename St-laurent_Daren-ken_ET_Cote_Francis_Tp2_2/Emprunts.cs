@@ -142,9 +142,14 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2_2
                 }
                 catch (OracleException ex)
                 {
-
-                    MessageBox.Show(ex.Message.ToString());
-
+                    if (ex.Number == 2292)
+                    {
+                        messa
+                    }
+                    else
+                    {
+                        MessageBox.Show(ex.Message.ToString());
+                    }
                 }
             }
         }

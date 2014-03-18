@@ -63,6 +63,7 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2
 
                     oraAjout.ExecuteNonQuery();
                     ReloadDGV();
+
                 }
                 catch (OracleException ex)
                 {
@@ -71,11 +72,50 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2
 
             }
         }
-        
+
 
         private void BTN_Modifier_Click(object sender, EventArgs e)
         {
+            Livres_Ajout Modifier = new Livres_Ajout();
+            Modifier.conn = this.conn;
+            Modifier.Text = "Modification";
+            if (Modifier.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
 
+                try
+                {
+                    OracleCommand oraAjout = new OracleCommand("GestionRetours", conn);
+                    oraAjout.CommandText = "GestionRetours.Modiflivre";
+                    oraAjout.CommandType = CommandType.StoredProcedure;
+
+                    OracleParameter OraParaNumLivre = new OracleParameter("PNumLivre", OracleDbType.Int32);
+                    OracleParameter OraParaTitre = new OracleParameter("PTitre", OracleDbType.Varchar2, 40);
+                    OracleParameter OraParaAuteur = new OracleParameter("PAuteur", OracleDbType.Varchar2, 40);
+
+
+                    OraParaNumLivre.Direction = ParameterDirection.Input;
+                    OraParaTitre.Direction = ParameterDirection.Input;
+                    OraParaAuteur.Direction = ParameterDirection.Input;
+
+                    OraParaNumLivre.Value = Modifier.numLivre;
+                    OraParaTitre.Value = Modifier.titre;
+                    OraParaAuteur.Value = Modifier.auteur;
+
+                    oraAjout.Parameters.Add(OraParaNumLivre);
+                    oraAjout.Parameters.Add(OraParaTitre);
+                    oraAjout.Parameters.Add(OraParaAuteur);
+
+                    oraAjout.ExecuteNonQuery();
+                    ReloadDGV();
+
+                }
+                catch (OracleException ex)
+                {
+                    MessageBox.Show(ex.Message.ToString());
+                }
+
+
+            }
         }
         private void reloadDGV()
         {

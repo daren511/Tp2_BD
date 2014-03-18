@@ -44,7 +44,7 @@
             this.BTN_OK.Location = new System.Drawing.Point(110, 124);
             this.BTN_OK.Name = "BTN_OK";
             this.BTN_OK.Size = new System.Drawing.Size(75, 23);
-            this.BTN_OK.TabIndex = 0;
+            this.BTN_OK.TabIndex = 6;
             this.BTN_OK.Text = "Ok";
             this.BTN_OK.UseVisualStyleBackColor = true;
             // 
@@ -54,7 +54,7 @@
             this.BTN_Cancel.Location = new System.Drawing.Point(218, 124);
             this.BTN_Cancel.Name = "BTN_Cancel";
             this.BTN_Cancel.Size = new System.Drawing.Size(75, 23);
-            this.BTN_Cancel.TabIndex = 1;
+            this.BTN_Cancel.TabIndex = 7;
             this.BTN_Cancel.Text = "Annuler";
             this.BTN_Cancel.UseVisualStyleBackColor = true;
             // 
@@ -64,7 +64,7 @@
             this.LB_NumLivre.Location = new System.Drawing.Point(45, 25);
             this.LB_NumLivre.Name = "LB_NumLivre";
             this.LB_NumLivre.Size = new System.Drawing.Size(36, 13);
-            this.LB_NumLivre.TabIndex = 2;
+            this.LB_NumLivre.TabIndex = 0;
             this.LB_NumLivre.Text = "# livre";
             // 
             // LB_Titre
@@ -82,22 +82,23 @@
             this.LB_Auteur.Location = new System.Drawing.Point(45, 86);
             this.LB_Auteur.Name = "LB_Auteur";
             this.LB_Auteur.Size = new System.Drawing.Size(38, 13);
-            this.LB_Auteur.TabIndex = 2;
+            this.LB_Auteur.TabIndex = 4;
             this.LB_Auteur.Text = "Auteur";
             // 
             // TB_NumLivre
             // 
+            this.TB_NumLivre.Enabled = false;
             this.TB_NumLivre.Location = new System.Drawing.Point(85, 22);
             this.TB_NumLivre.Name = "TB_NumLivre";
             this.TB_NumLivre.Size = new System.Drawing.Size(70, 20);
-            this.TB_NumLivre.TabIndex = 3;
+            this.TB_NumLivre.TabIndex = 1;
             // 
             // TB_Titre
             // 
             this.TB_Titre.Location = new System.Drawing.Point(85, 52);
             this.TB_Titre.Name = "TB_Titre";
             this.TB_Titre.Size = new System.Drawing.Size(242, 20);
-            this.TB_Titre.TabIndex = 4;
+            this.TB_Titre.TabIndex = 3;
             // 
             // TB_Auteur
             // 

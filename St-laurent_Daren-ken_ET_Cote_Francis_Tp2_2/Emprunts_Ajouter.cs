@@ -74,30 +74,43 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2_2
         private void Emprunts_Ajouter_Load(object sender, EventArgs e)
         {
             DTP_DateRetourPrevu.MinDate = DateTime.Today;
+            try
+            {
+                OracleCommand oraSelect = new OracleCommand("GestionEmprunts", conn);
+                oraSelect.CommandText = "GestionEmprunts.ConsulNumExemplaire";
+                oraSelect.CommandType = CommandType.StoredProcedure;
 
-            OracleCommand oraSelect = new OracleCommand("GestionEmprunts", conn);
-            oraSelect.CommandText = "GestionEmprunts.ConsulNumExemplaire";
-            oraSelect.CommandType = CommandType.StoredProcedure;
+                OracleParameter oraParamSelect = new OracleParameter("RESULTAT", OracleDbType.RefCursor);
+                oraParamSelect.Direction = ParameterDirection.ReturnValue;
+                oraSelect.Parameters.Add(oraParamSelect);
 
-            // A REVOIR!! ON A PAS LE DROIT DE FAIRE SA
-            //using (OracleDataReader oraReader = oraSelect.ExecuteReader())
-            //{
-            //    while (oraReader.Read())
-            //    {
-            //        CB_NumExemplaire.Items.Add(oraReader.GetString(0));
-            //    }
-            //}
-            //OracleCommand oraSelectAdherent = new OracleCommand("GestionEmprunts", conn);
-            //oraSelectAdherent.CommandText = "GestionEmprunts.ConsulNumAdherent";
-            //oraSelectAdherent.CommandType = CommandType.StoredProcedure;
+                using (OracleDataReader oraReader = oraSelect.ExecuteReader())
+                {
+                    while (oraReader.Read())
+                    {
+                        CB_NumExemplaire.Items.Add(oraReader.GetInt32(0).ToString());
+                    }
+                }
+            }
+            catch(OracleException ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
+            OracleCommand oraSelectAdherent = new OracleCommand("GestionEmprunts", conn);
+            oraSelectAdherent.CommandText = "GestionEmprunts.ConsulNumAdherent";
+            oraSelectAdherent.CommandType = CommandType.StoredProcedure;
 
-            //using (OracleDataReader oraReaderAd = oraSelectAdherent.ExecuteReader())
-            //{
-            //    while (oraReaderAd.Read())
-            //    {
-            //        CB_NumAdherent.Items.Add(oraReaderAd.GetString(0));
-            //    }
-            //}
+            OracleParameter oraParamSelect2 = new OracleParameter("RESULTAT", OracleDbType.RefCursor);
+            oraParamSelect2.Direction = ParameterDirection.ReturnValue;
+            oraSelectAdherent.Parameters.Add(oraParamSelect2);
+
+            using (OracleDataReader oraReaderAd = oraSelectAdherent.ExecuteReader())
+            {
+                while (oraReaderAd.Read())
+                {
+                    CB_NumAdherent.Items.Add(oraReaderAd.GetInt32(0).ToString());
+                }
+            }
 
         }
     }

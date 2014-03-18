@@ -38,6 +38,7 @@
             // 
             // CB_NumPret
             // 
+            this.CB_NumPret.Enabled = false;
             this.CB_NumPret.FormattingEnabled = true;
             this.CB_NumPret.Location = new System.Drawing.Point(108, 23);
             this.CB_NumPret.Name = "CB_NumPret";
@@ -53,7 +54,7 @@
             // 
             // BTN_OK
             // 
-            this.BTN_OK.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.BTN_OK.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.BTN_OK.Location = new System.Drawing.Point(25, 129);
             this.BTN_OK.Name = "BTN_OK";
             this.BTN_OK.Size = new System.Drawing.Size(75, 23);
