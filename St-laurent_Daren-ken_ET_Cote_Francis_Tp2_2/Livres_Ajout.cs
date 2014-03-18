@@ -14,7 +14,7 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2_2
     public partial class Livres_Ajout : Form
     {
         public OracleConnection conn = null;
-        
+
         public Livres_Ajout()
         {
             InitializeComponent();
@@ -56,8 +56,21 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2_2
 
         private void Livres_Ajout_Load(object sender, EventArgs e)
         {
-            if (TB_NumLivre.Text !="")
+            if (TB_NumLivre.Text != "")
                 TB_NumLivre.Enabled = false; // SO BLACK
+            updateControls();
+        }
+
+        private void TB_NumLivre_TextChanged(object sender, EventArgs e)
+        {
+            updateControls();
+        }
+        private void updateControls()
+        {
+            if (TB_NumLivre.Text != "")
+                BTN_OK.Enabled = true;
+            else
+                BTN_OK.Enabled = false;
         }
     }
 }

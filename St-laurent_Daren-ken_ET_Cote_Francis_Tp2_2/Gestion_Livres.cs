@@ -69,6 +69,10 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2
                 {
                     ErrorMessage(ex);
                 }
+                catch(FormatException ex)
+                {
+                    MessageBox.Show("Le numero de livre doit etre numérique");
+                }
 
             }
         }
@@ -376,6 +380,9 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2
         {
             switch (Ex.Number)
             {
+                case 1:
+                    MessageBox.Show("Le numéro de livre doit etre unique", "Erreur 1", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    break;
                 case 2292:
                     MessageBox.Show("Le livre à déjà été louer", "Erreur 2292", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     break;
@@ -392,6 +399,14 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2
         {
             if (e.RowIndex > -1)
                 callFormExemplaires();
+        }
+
+        private void TB_Rechercher_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                BTN_Rechercher_Click(sender, e);
+            }
         }
     }
 }

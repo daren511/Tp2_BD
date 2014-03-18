@@ -70,7 +70,7 @@
             this.DGV_Livres.ReadOnly = true;
             this.DGV_Livres.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DGV_Livres.Size = new System.Drawing.Size(397, 286);
-            this.DGV_Livres.TabIndex = 0;
+            this.DGV_Livres.TabIndex = 13;
             this.DGV_Livres.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV_Livres_CellDoubleClick);
             // 
             // CMS_Livres
@@ -110,11 +110,11 @@
             // BTN_Close
             // 
             this.BTN_Close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.BTN_Close.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.BTN_Close.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.BTN_Close.Location = new System.Drawing.Point(656, 275);
             this.BTN_Close.Name = "BTN_Close";
             this.BTN_Close.Size = new System.Drawing.Size(75, 23);
-            this.BTN_Close.TabIndex = 1;
+            this.BTN_Close.TabIndex = 12;
             this.BTN_Close.Text = "Fermer";
             this.BTN_Close.UseVisualStyleBackColor = true;
             this.BTN_Close.Click += new System.EventHandler(this.BTN_Close_Click);
@@ -125,7 +125,7 @@
             this.BTN_Ajout.Location = new System.Drawing.Point(429, 12);
             this.BTN_Ajout.Name = "BTN_Ajout";
             this.BTN_Ajout.Size = new System.Drawing.Size(75, 23);
-            this.BTN_Ajout.TabIndex = 2;
+            this.BTN_Ajout.TabIndex = 0;
             this.BTN_Ajout.Text = "Ajouter";
             this.BTN_Ajout.UseVisualStyleBackColor = true;
             this.BTN_Ajout.Click += new System.EventHandler(this.BTN_Ajout_Click);
@@ -136,7 +136,7 @@
             this.BTN_Modifier.Location = new System.Drawing.Point(429, 41);
             this.BTN_Modifier.Name = "BTN_Modifier";
             this.BTN_Modifier.Size = new System.Drawing.Size(75, 23);
-            this.BTN_Modifier.TabIndex = 3;
+            this.BTN_Modifier.TabIndex = 1;
             this.BTN_Modifier.Text = "Modifier";
             this.BTN_Modifier.UseVisualStyleBackColor = true;
             this.BTN_Modifier.Click += new System.EventHandler(this.BTN_Modifier_Click);
@@ -147,7 +147,7 @@
             this.BTN_Delete.Location = new System.Drawing.Point(429, 80);
             this.BTN_Delete.Name = "BTN_Delete";
             this.BTN_Delete.Size = new System.Drawing.Size(75, 23);
-            this.BTN_Delete.TabIndex = 4;
+            this.BTN_Delete.TabIndex = 2;
             this.BTN_Delete.Text = "Supprimer";
             this.BTN_Delete.UseVisualStyleBackColor = true;
             this.BTN_Delete.Click += new System.EventHandler(this.BTN_Delete_Click);
@@ -155,10 +155,10 @@
             // BTN_Refresh
             // 
             this.BTN_Refresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.BTN_Refresh.Location = new System.Drawing.Point(430, 189);
+            this.BTN_Refresh.Location = new System.Drawing.Point(429, 247);
             this.BTN_Refresh.Name = "BTN_Refresh";
             this.BTN_Refresh.Size = new System.Drawing.Size(75, 42);
-            this.BTN_Refresh.TabIndex = 4;
+            this.BTN_Refresh.TabIndex = 11;
             this.BTN_Refresh.Text = "Afficher Tout";
             this.BTN_Refresh.UseVisualStyleBackColor = true;
             this.BTN_Refresh.Click += new System.EventHandler(this.BTN_Refresh_Click);
@@ -169,7 +169,7 @@
             this.BTN_Auteur.Location = new System.Drawing.Point(430, 123);
             this.BTN_Auteur.Name = "BTN_Auteur";
             this.BTN_Auteur.Size = new System.Drawing.Size(75, 41);
-            this.BTN_Auteur.TabIndex = 5;
+            this.BTN_Auteur.TabIndex = 7;
             this.BTN_Auteur.Text = "Afficher par auteur";
             this.BTN_Auteur.UseVisualStyleBackColor = true;
             this.BTN_Auteur.Click += new System.EventHandler(this.BTN_Auteur_Click);
@@ -177,10 +177,10 @@
             // BTN_PlusEmprunte
             // 
             this.BTN_PlusEmprunte.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.BTN_PlusEmprunte.Location = new System.Drawing.Point(524, 151);
+            this.BTN_PlusEmprunte.Location = new System.Drawing.Point(430, 181);
             this.BTN_PlusEmprunte.Name = "BTN_PlusEmprunte";
             this.BTN_PlusEmprunte.Size = new System.Drawing.Size(75, 42);
-            this.BTN_PlusEmprunte.TabIndex = 6;
+            this.BTN_PlusEmprunte.TabIndex = 10;
             this.BTN_PlusEmprunte.Text = "Afficher plus empruntés";
             this.BTN_PlusEmprunte.UseVisualStyleBackColor = true;
             this.BTN_PlusEmprunte.Click += new System.EventHandler(this.BTN_PlusEmprunte_Click);
@@ -188,18 +188,19 @@
             // TB_Rechercher
             // 
             this.TB_Rechercher.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.TB_Rechercher.Location = new System.Drawing.Point(415, 249);
+            this.TB_Rechercher.Location = new System.Drawing.Point(558, 155);
             this.TB_Rechercher.Name = "TB_Rechercher";
             this.TB_Rechercher.Size = new System.Drawing.Size(156, 20);
-            this.TB_Rechercher.TabIndex = 7;
+            this.TB_Rechercher.TabIndex = 8;
+            this.TB_Rechercher.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TB_Rechercher_KeyDown);
             // 
             // BTN_Rechercher
             // 
             this.BTN_Rechercher.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.BTN_Rechercher.Location = new System.Drawing.Point(455, 275);
+            this.BTN_Rechercher.Location = new System.Drawing.Point(598, 181);
             this.BTN_Rechercher.Name = "BTN_Rechercher";
             this.BTN_Rechercher.Size = new System.Drawing.Size(87, 23);
-            this.BTN_Rechercher.TabIndex = 8;
+            this.BTN_Rechercher.TabIndex = 9;
             this.BTN_Rechercher.Text = "Rechercher";
             this.BTN_Rechercher.UseVisualStyleBackColor = true;
             this.BTN_Rechercher.Click += new System.EventHandler(this.BTN_Rechercher_Click);
@@ -210,7 +211,7 @@
             this.DTP_DateFin.Location = new System.Drawing.Point(610, 44);
             this.DTP_DateFin.Name = "DTP_DateFin";
             this.DTP_DateFin.Size = new System.Drawing.Size(121, 20);
-            this.DTP_DateFin.TabIndex = 9;
+            this.DTP_DateFin.TabIndex = 4;
             // 
             // DTP_DateDebut
             // 
@@ -218,7 +219,7 @@
             this.DTP_DateDebut.Location = new System.Drawing.Point(610, 79);
             this.DTP_DateDebut.Name = "DTP_DateDebut";
             this.DTP_DateDebut.Size = new System.Drawing.Size(121, 20);
-            this.DTP_DateDebut.TabIndex = 9;
+            this.DTP_DateDebut.TabIndex = 5;
             // 
             // CB_NumAdherent
             // 
@@ -227,7 +228,7 @@
             this.CB_NumAdherent.Location = new System.Drawing.Point(610, 12);
             this.CB_NumAdherent.Name = "CB_NumAdherent";
             this.CB_NumAdherent.Size = new System.Drawing.Size(121, 21);
-            this.CB_NumAdherent.TabIndex = 10;
+            this.CB_NumAdherent.TabIndex = 3;
             // 
             // label1
             // 
@@ -236,7 +237,7 @@
             this.label1.Location = new System.Drawing.Point(521, 17);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(67, 13);
-            this.label1.TabIndex = 11;
+            this.label1.TabIndex = 14;
             this.label1.Text = "# d\'adherent";
             // 
             // label2
@@ -246,7 +247,7 @@
             this.label2.Location = new System.Drawing.Point(521, 50);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(62, 13);
-            this.label2.TabIndex = 11;
+            this.label2.TabIndex = 15;
             this.label2.Text = "Date Début";
             // 
             // label3
@@ -256,7 +257,7 @@
             this.label3.Location = new System.Drawing.Point(524, 85);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(47, 13);
-            this.label3.TabIndex = 11;
+            this.label3.TabIndex = 16;
             this.label3.Text = "Date Fin";
             // 
             // BTN_AdherentPeriode
@@ -265,7 +266,7 @@
             this.BTN_AdherentPeriode.Location = new System.Drawing.Point(553, 104);
             this.BTN_AdherentPeriode.Name = "BTN_AdherentPeriode";
             this.BTN_AdherentPeriode.Size = new System.Drawing.Size(156, 23);
-            this.BTN_AdherentPeriode.TabIndex = 12;
+            this.BTN_AdherentPeriode.TabIndex = 6;
             this.BTN_AdherentPeriode.Text = "Recherche Par Période";
             this.BTN_AdherentPeriode.UseVisualStyleBackColor = true;
             this.BTN_AdherentPeriode.Click += new System.EventHandler(this.BTN_AdherentPeriode_Click);

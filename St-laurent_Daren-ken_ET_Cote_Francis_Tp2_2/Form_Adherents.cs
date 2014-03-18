@@ -202,6 +202,9 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2
                 case 1407:
                     MessageBox.Show("Vous ne pouvez pas rien mettre dans le nom", "Erreur 1407", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     break;
+                case 1400:
+                    MessageBox.Show("Vous ne pouvez pas rien mettre dans le nom", "Erreur 1400", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    break;
                 default:
                     MessageBox.Show("Une erreur non-gerer est survenue : " + Ex.Number.ToString() + ":" + Ex.Message.ToString(),"Erreur : " + Ex.Number.ToString(), MessageBoxButtons.OK, MessageBoxIcon.Error);
                     break;

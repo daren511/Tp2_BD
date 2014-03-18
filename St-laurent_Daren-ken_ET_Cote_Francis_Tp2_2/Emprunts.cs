@@ -66,6 +66,10 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2_2
                 {
                     ErrorMessage(ex);
                 }
+                catch (FormatException ex)
+                {
+                    MessageBox.Show("Veuillez choisir une valeur dans la liste");
+                }
 
             }
         }

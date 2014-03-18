@@ -91,6 +91,7 @@
             this.TB_NumLivre.Name = "TB_NumLivre";
             this.TB_NumLivre.Size = new System.Drawing.Size(70, 20);
             this.TB_NumLivre.TabIndex = 1;
+            this.TB_NumLivre.TextChanged += new System.EventHandler(this.TB_NumLivre_TextChanged);
             // 
             // TB_Titre
             // 
