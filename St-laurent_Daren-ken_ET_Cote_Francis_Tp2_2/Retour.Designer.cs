@@ -30,7 +30,6 @@
         {
             this.DGV_Retour = new System.Windows.Forms.DataGridView();
             this.BTN_Modifier = new System.Windows.Forms.Button();
-            this.BTN_Supprimer = new System.Windows.Forms.Button();
             this.BTN_Close = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Retour)).BeginInit();
             this.SuspendLayout();
@@ -50,30 +49,19 @@
             this.DGV_Retour.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DGV_Retour.Size = new System.Drawing.Size(331, 150);
             this.DGV_Retour.TabIndex = 0;
+            this.DGV_Retour.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DGV_Retour_CellMouseClick);
             // 
             // BTN_Modifier
             // 
             this.BTN_Modifier.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.BTN_Modifier.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.BTN_Modifier.Location = new System.Drawing.Point(381, 31);
+            this.BTN_Modifier.Location = new System.Drawing.Point(370, 50);
             this.BTN_Modifier.Name = "BTN_Modifier";
-            this.BTN_Modifier.Size = new System.Drawing.Size(75, 23);
+            this.BTN_Modifier.Size = new System.Drawing.Size(75, 39);
             this.BTN_Modifier.TabIndex = 2;
-            this.BTN_Modifier.Text = "Modifier";
+            this.BTN_Modifier.Text = "Valider des retours";
             this.BTN_Modifier.UseVisualStyleBackColor = true;
             this.BTN_Modifier.Click += new System.EventHandler(this.BTN_Modifier_Click);
-            // 
-            // BTN_Supprimer
-            // 
-            this.BTN_Supprimer.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.BTN_Supprimer.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.BTN_Supprimer.Location = new System.Drawing.Point(381, 60);
-            this.BTN_Supprimer.Name = "BTN_Supprimer";
-            this.BTN_Supprimer.Size = new System.Drawing.Size(75, 23);
-            this.BTN_Supprimer.TabIndex = 3;
-            this.BTN_Supprimer.Text = "Supprimer";
-            this.BTN_Supprimer.UseVisualStyleBackColor = true;
-            this.BTN_Supprimer.Click += new System.EventHandler(this.BTN_Supprimer_Click);
             // 
             // BTN_Close
             // 
@@ -94,7 +82,6 @@
             this.CancelButton = this.BTN_Close;
             this.ClientSize = new System.Drawing.Size(468, 218);
             this.Controls.Add(this.BTN_Close);
-            this.Controls.Add(this.BTN_Supprimer);
             this.Controls.Add(this.BTN_Modifier);
             this.Controls.Add(this.DGV_Retour);
             this.Cursor = System.Windows.Forms.Cursors.Default;
@@ -115,7 +102,6 @@
 
         private System.Windows.Forms.DataGridView DGV_Retour;
         private System.Windows.Forms.Button BTN_Modifier;
-        private System.Windows.Forms.Button BTN_Supprimer;
         private System.Windows.Forms.Button BTN_Close;
     }
 }

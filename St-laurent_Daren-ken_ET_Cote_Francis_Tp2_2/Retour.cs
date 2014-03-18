@@ -141,13 +141,24 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2_2
             if (DGV_Retour.RowCount > 0)
             {
                 BTN_Modifier.Enabled = true;
-                BTN_Supprimer.Enabled = true;
             }
             else
             {
                 BTN_Modifier.Enabled = false;
-                BTN_Supprimer.Enabled = false;
             }
+            if (DGV_Retour.SelectedRows[0].Cells[1].Value.ToString() == "")
+            {
+                BTN_Modifier.Enabled = true;
+            }
+            else
+            {
+                BTN_Modifier.Enabled = false;
+            }
+        }
+
+        private void DGV_Retour_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            updateControls();
         }
     }
 }

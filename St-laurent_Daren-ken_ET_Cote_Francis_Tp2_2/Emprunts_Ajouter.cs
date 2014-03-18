@@ -69,7 +69,11 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2_2
             }
         }
 
-
+        public void modification()
+        {
+            CB_NumAdherent.Enabled = false;
+            CB_NumExemplaire.Enabled = false;
+        }
 
         private void Emprunts_Ajouter_Load(object sender, EventArgs e)
         {

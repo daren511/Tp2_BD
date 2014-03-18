@@ -39,6 +39,7 @@
             this.BTN_Ajout = new System.Windows.Forms.Button();
             this.BTN_Modifier = new System.Windows.Forms.Button();
             this.BTN_Delete = new System.Windows.Forms.Button();
+            this.BTN_Refresh = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Livres)).BeginInit();
             this.CMS_Livres.SuspendLayout();
             this.SuspendLayout();
@@ -134,12 +135,23 @@
             this.BTN_Delete.UseVisualStyleBackColor = true;
             this.BTN_Delete.Click += new System.EventHandler(this.BTN_Delete_Click);
             // 
+            // BTN_Refresh
+            // 
+            this.BTN_Refresh.Location = new System.Drawing.Point(427, 143);
+            this.BTN_Refresh.Name = "BTN_Refresh";
+            this.BTN_Refresh.Size = new System.Drawing.Size(75, 42);
+            this.BTN_Refresh.TabIndex = 4;
+            this.BTN_Refresh.Text = "Afficher Tout";
+            this.BTN_Refresh.UseVisualStyleBackColor = true;
+            this.BTN_Refresh.Click += new System.EventHandler(this.BTN_Refresh_Click);
+            // 
             // Gestion_Livres
             // 
             this.AcceptButton = this.BTN_Close;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(514, 240);
+            this.Controls.Add(this.BTN_Refresh);
             this.Controls.Add(this.BTN_Delete);
             this.Controls.Add(this.BTN_Modifier);
             this.Controls.Add(this.BTN_Ajout);
@@ -171,5 +183,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem modifierToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem supprimerToolStripMenuItem;
+        private System.Windows.Forms.Button BTN_Refresh;
     }
 }

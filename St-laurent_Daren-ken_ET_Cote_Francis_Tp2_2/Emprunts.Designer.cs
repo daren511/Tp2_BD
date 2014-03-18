@@ -32,7 +32,6 @@
             this.DGV_Emprunts = new System.Windows.Forms.DataGridView();
             this.BTN_Ajouter = new System.Windows.Forms.Button();
             this.BTN_Modifier = new System.Windows.Forms.Button();
-            this.BTN_Supprimer = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Emprunts)).BeginInit();
             this.SuspendLayout();
             // 
@@ -88,24 +87,12 @@
             this.BTN_Modifier.UseVisualStyleBackColor = true;
             this.BTN_Modifier.Click += new System.EventHandler(this.BTN_Modifier_Click);
             // 
-            // BTN_Supprimer
-            // 
-            this.BTN_Supprimer.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.BTN_Supprimer.Location = new System.Drawing.Point(596, 173);
-            this.BTN_Supprimer.Name = "BTN_Supprimer";
-            this.BTN_Supprimer.Size = new System.Drawing.Size(75, 23);
-            this.BTN_Supprimer.TabIndex = 5;
-            this.BTN_Supprimer.Text = "Supprimer";
-            this.BTN_Supprimer.UseVisualStyleBackColor = true;
-            this.BTN_Supprimer.Click += new System.EventHandler(this.BTN_Supprimer_Click);
-            // 
             // Emprunts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.BTN_Close;
             this.ClientSize = new System.Drawing.Size(720, 315);
-            this.Controls.Add(this.BTN_Supprimer);
             this.Controls.Add(this.BTN_Modifier);
             this.Controls.Add(this.BTN_Ajouter);
             this.Controls.Add(this.DGV_Emprunts);
@@ -129,6 +116,5 @@
         private System.Windows.Forms.DataGridView DGV_Emprunts;
         private System.Windows.Forms.Button BTN_Ajouter;
         private System.Windows.Forms.Button BTN_Modifier;
-        private System.Windows.Forms.Button BTN_Supprimer;
     }
 }

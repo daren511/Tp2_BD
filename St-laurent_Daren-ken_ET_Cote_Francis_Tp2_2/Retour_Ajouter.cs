@@ -44,17 +44,6 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2_2
 
         private void Retour_Ajouter_Load(object sender, EventArgs e)
         {
-            OracleCommand oraSelect = new OracleCommand("GestionRetours", conn);
-            oraSelect.CommandText = "GestionRetours.CONSULNUMPRET";
-            oraSelect.CommandType = CommandType.StoredProcedure;
-
-            using (OracleDataReader oraReader = oraSelect.ExecuteReader())
-            {
-                while (oraReader.Read())
-                {
-                    CB_NumPret.Items.Add(oraReader.GetString(0));
-                }
-            }
         }
     }
 }

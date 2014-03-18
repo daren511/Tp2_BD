@@ -79,6 +79,7 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2
             Livres_Ajout Modifier = new Livres_Ajout();
             Modifier.conn = this.conn;
             Modifier.Text = "Modification";
+            
             if (Modifier.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
 
@@ -139,6 +140,30 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2
 
             updateControls();
         }
+        private void ReloadDGV()
+        {
+            try
+            {
+                OracleCommand oraSelect = new OracleCommand("GestionRetours", conn);
+                oraSelect.CommandText = "GestionRetours.Consultlivre";
+                oraSelect.CommandType = CommandType.StoredProcedure;
+
+                //Retour
+                OracleParameter OraParaResultat = new OracleParameter("Resultat", OracleDbType.RefCursor);
+                OraParaResultat.Direction = ParameterDirection.ReturnValue;
+                oraSelect.Parameters.Add(OraParaResultat);
+
+                //Remplir DGV 
+                OracleDataAdapter oraAdapter = new OracleDataAdapter(oraSelect);
+                livreDataSet = new DataSet();
+                oraAdapter.Fill(livreDataSet);
+                DGV_Livres.DataSource = livreDataSet.Tables[0];
+            }
+            catch (OracleException ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
+        }
         private void updateControls()
         {
             if (DGV_Livres.RowCount > 0)
@@ -177,7 +202,11 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2
                 {
                     if (ex.Number == 2292)
                     {
-                        MessageBox.Show("Le Livre à été loué", "Erreur 2292", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Le livre à déjà été louer", "Erreur 2292", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Une erreur non-gerer est survenue : " + ex.Number.ToString() + ":" + ex.Message.ToString(), ex.Number.ToString(), MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
 
@@ -196,29 +225,11 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2
             
         }
 
-        private void ReloadDGV()
+
+
+        private void BTN_Refresh_Click(object sender, EventArgs e)
         {
-            try
-            {
-                OracleCommand oraSelect = new OracleCommand("GestionRetours", conn);
-                oraSelect.CommandText = "GestionRetours.Consultlivre";
-                oraSelect.CommandType = CommandType.StoredProcedure;
-
-                //Retour
-                OracleParameter OraParaResultat = new OracleParameter("Resultat", OracleDbType.RefCursor);
-                OraParaResultat.Direction = ParameterDirection.ReturnValue;
-                oraSelect.Parameters.Add(OraParaResultat);
-
-                //Remplir DGV 
-                OracleDataAdapter oraAdapter = new OracleDataAdapter(oraSelect);
-                livreDataSet = new DataSet();
-                oraAdapter.Fill(livreDataSet);
-                DGV_Livres.DataSource = livreDataSet.Tables[0];
-            }
-            catch (OracleException ex)
-            {
-                MessageBox.Show(ex.Message.ToString());
-            }
+            reloadDGV();
         }
     }
 }

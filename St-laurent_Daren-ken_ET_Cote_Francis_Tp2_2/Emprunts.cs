@@ -76,6 +76,7 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2_2
             Emprunts_Ajouter Modifier = new Emprunts_Ajouter();
             Modifier.conn = this.conn;
             Modifier.Text = "Modification";
+            Modifier.modification();
             Modifier.numAdherent = DGV_Emprunts.SelectedRows[0].Cells[0].Value.ToString();
             Modifier.numExemplaire = DGV_Emprunts.SelectedRows[0].Cells[2].Value.ToString();
             Modifier.dateEmprunt = DGV_Emprunts.SelectedRows[0].Cells[3].Value.ToString();
@@ -144,11 +145,11 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2_2
                 {
                     if (ex.Number == 2292)
                     {
-                        messa
+                        MessageBox.Show("on ne peut pas effacer un emprunt", "Erreur 2292", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     else
                     {
-                        MessageBox.Show(ex.Message.ToString());
+                        MessageBox.Show("Une erreur non-gerer est survenue : " + ex.Number.ToString() + ":" + ex.Message.ToString(), ex.Number.ToString(), MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
@@ -199,12 +200,10 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2_2
             if (DGV_Emprunts.RowCount > 0)
             {
                 BTN_Modifier.Enabled = true;
-                BTN_Supprimer.Enabled = true;
             }
             else
             {
                 BTN_Modifier.Enabled = false;
-                BTN_Supprimer.Enabled = false;
             }
         }
         private void ErrorMessage(OracleException Ex)

@@ -47,6 +47,7 @@
             // 
             // DTP_DateRetourReel
             // 
+            this.DTP_DateRetourReel.Enabled = false;
             this.DTP_DateRetourReel.Location = new System.Drawing.Point(108, 76);
             this.DTP_DateRetourReel.Name = "DTP_DateRetourReel";
             this.DTP_DateRetourReel.Size = new System.Drawing.Size(121, 20);
