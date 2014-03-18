@@ -91,6 +91,7 @@
             this.TB_Password.Name = "TB_Password";
             this.TB_Password.Size = new System.Drawing.Size(100, 20);
             this.TB_Password.TabIndex = 3;
+            this.TB_Password.Text = "oracle1";
             this.TB_Password.UseSystemPasswordChar = true;
             this.TB_Password.TextChanged += new System.EventHandler(this.TB_TextChanged);
             this.TB_Password.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TB_Password_KeyDown);
@@ -101,13 +102,16 @@
             this.TB_Username.Name = "TB_Username";
             this.TB_Username.Size = new System.Drawing.Size(100, 20);
             this.TB_Username.TabIndex = 1;
+            this.TB_Username.Text = "cotefran";
             this.TB_Username.TextChanged += new System.EventHandler(this.TB_TextChanged);
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Image = global::St_laurent_Daren_ken_ET_Cote_Francis_Tp2_2.Properties.Resources.bibliotheque_de_la_danse;
             this.pictureBox1.Location = new System.Drawing.Point(12, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(250, 138);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
             // 

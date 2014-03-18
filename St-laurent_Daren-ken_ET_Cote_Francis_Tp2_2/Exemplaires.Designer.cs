@@ -31,7 +31,6 @@
             this.BTN_Ajouter = new System.Windows.Forms.Button();
             this.BTN_Delete = new System.Windows.Forms.Button();
             this.DGV_Exemplaires = new System.Windows.Forms.DataGridView();
-            this.BTN_OK = new System.Windows.Forms.Button();
             this.BTN_Cancel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Exemplaires)).BeginInit();
             this.SuspendLayout();
@@ -39,7 +38,6 @@
             // BTN_Ajouter
             // 
             this.BTN_Ajouter.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.BTN_Ajouter.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.BTN_Ajouter.Location = new System.Drawing.Point(469, 30);
             this.BTN_Ajouter.Name = "BTN_Ajouter";
             this.BTN_Ajouter.Size = new System.Drawing.Size(75, 23);
@@ -51,7 +49,6 @@
             // BTN_Delete
             // 
             this.BTN_Delete.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.BTN_Delete.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.BTN_Delete.Location = new System.Drawing.Point(469, 59);
             this.BTN_Delete.Name = "BTN_Delete";
             this.BTN_Delete.Size = new System.Drawing.Size(75, 23);
@@ -79,17 +76,6 @@
             this.DGV_Exemplaires.Size = new System.Drawing.Size(451, 207);
             this.DGV_Exemplaires.TabIndex = 3;
             // 
-            // BTN_OK
-            // 
-            this.BTN_OK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.BTN_OK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.BTN_OK.Location = new System.Drawing.Point(388, 225);
-            this.BTN_OK.Name = "BTN_OK";
-            this.BTN_OK.Size = new System.Drawing.Size(75, 23);
-            this.BTN_OK.TabIndex = 4;
-            this.BTN_OK.Text = "Ok";
-            this.BTN_OK.UseVisualStyleBackColor = true;
-            // 
             // BTN_Cancel
             // 
             this.BTN_Cancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -98,19 +84,17 @@
             this.BTN_Cancel.Name = "BTN_Cancel";
             this.BTN_Cancel.Size = new System.Drawing.Size(75, 23);
             this.BTN_Cancel.TabIndex = 5;
-            this.BTN_Cancel.Text = "Annuler";
+            this.BTN_Cancel.Text = "Ferme";
             this.BTN_Cancel.UseVisualStyleBackColor = true;
             this.BTN_Cancel.Click += new System.EventHandler(this.BTN_Cancel_Click);
             // 
             // Exemplaires
             // 
-            this.AcceptButton = this.BTN_OK;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.BTN_Cancel;
             this.ClientSize = new System.Drawing.Size(556, 260);
             this.Controls.Add(this.BTN_Cancel);
-            this.Controls.Add(this.BTN_OK);
             this.Controls.Add(this.DGV_Exemplaires);
             this.Controls.Add(this.BTN_Delete);
             this.Controls.Add(this.BTN_Ajouter);
@@ -129,7 +113,6 @@
         private System.Windows.Forms.Button BTN_Ajouter;
         private System.Windows.Forms.Button BTN_Delete;
         private System.Windows.Forms.DataGridView DGV_Exemplaires;
-        private System.Windows.Forms.Button BTN_OK;
         private System.Windows.Forms.Button BTN_Cancel;
     }
 }

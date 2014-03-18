@@ -71,6 +71,7 @@
             this.DGV_Livres.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DGV_Livres.Size = new System.Drawing.Size(397, 286);
             this.DGV_Livres.TabIndex = 0;
+            this.DGV_Livres.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV_Livres_CellDoubleClick);
             // 
             // CMS_Livres
             // 

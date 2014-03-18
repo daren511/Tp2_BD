@@ -375,5 +375,11 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2
                     break;
             }
         }
+
+        private void DGV_Livres_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex > -1)
+                callFormExemplaires();
+        }
     }
 }

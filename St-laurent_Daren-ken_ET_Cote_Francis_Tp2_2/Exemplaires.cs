@@ -99,7 +99,7 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2_2
                 }
                 catch (OracleException ex)
                 {
-                    MessageBox.Show(ex.Message.ToString());
+                    ErrorMessage(ex);
                 }
 
             }
@@ -127,7 +127,7 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2_2
                 }
                 catch (OracleException ex)
                 {
-                    MessageBox.Show(ex.Message.ToString());
+                    ErrorMessage(ex);
                 }
             }
         }
