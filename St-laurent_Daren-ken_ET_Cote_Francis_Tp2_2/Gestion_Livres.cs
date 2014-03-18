@@ -379,6 +379,9 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2
                 case 2292:
                     MessageBox.Show("Le livre à déjà été louer", "Erreur 2292", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     break;
+                case 1407:
+                    MessageBox.Show("Vous ne pouvez pas rien mettre dans le titre", "Erreur 1410", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    break;
                 default:
                     MessageBox.Show("Une erreur non-gerer est survenue : " + Ex.Number.ToString() + ":" + Ex.Message.ToString(), Ex.Number.ToString(), MessageBoxButtons.OK, MessageBoxIcon.Error);
                     break;

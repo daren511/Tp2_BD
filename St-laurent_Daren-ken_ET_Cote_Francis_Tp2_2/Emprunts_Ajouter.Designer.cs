@@ -38,12 +38,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.CB_Pret = new System.Windows.Forms.ComboBox();
+            this.LB_Pret = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // CB_NumExemplaire
             // 
             this.CB_NumExemplaire.FormattingEnabled = true;
-            this.CB_NumExemplaire.Location = new System.Drawing.Point(129, 23);
+            this.CB_NumExemplaire.Location = new System.Drawing.Point(130, 59);
             this.CB_NumExemplaire.Name = "CB_NumExemplaire";
             this.CB_NumExemplaire.Size = new System.Drawing.Size(115, 21);
             this.CB_NumExemplaire.TabIndex = 0;
@@ -51,7 +53,7 @@
             // CB_NumAdherent
             // 
             this.CB_NumAdherent.FormattingEnabled = true;
-            this.CB_NumAdherent.Location = new System.Drawing.Point(129, 70);
+            this.CB_NumAdherent.Location = new System.Drawing.Point(130, 100);
             this.CB_NumAdherent.Name = "CB_NumAdherent";
             this.CB_NumAdherent.Size = new System.Drawing.Size(115, 21);
             this.CB_NumAdherent.TabIndex = 1;
@@ -59,14 +61,14 @@
             // DTP_DateEmprunt
             // 
             this.DTP_DateEmprunt.Enabled = false;
-            this.DTP_DateEmprunt.Location = new System.Drawing.Point(129, 119);
+            this.DTP_DateEmprunt.Location = new System.Drawing.Point(130, 149);
             this.DTP_DateEmprunt.Name = "DTP_DateEmprunt";
             this.DTP_DateEmprunt.Size = new System.Drawing.Size(115, 20);
             this.DTP_DateEmprunt.TabIndex = 2;
             // 
             // DTP_DateRetourPrevu
             // 
-            this.DTP_DateRetourPrevu.Location = new System.Drawing.Point(129, 164);
+            this.DTP_DateRetourPrevu.Location = new System.Drawing.Point(130, 194);
             this.DTP_DateRetourPrevu.Name = "DTP_DateRetourPrevu";
             this.DTP_DateRetourPrevu.Size = new System.Drawing.Size(115, 20);
             this.DTP_DateRetourPrevu.TabIndex = 3;
@@ -75,7 +77,7 @@
             // BTN_OK
             // 
             this.BTN_OK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.BTN_OK.Location = new System.Drawing.Point(15, 206);
+            this.BTN_OK.Location = new System.Drawing.Point(16, 236);
             this.BTN_OK.Name = "BTN_OK";
             this.BTN_OK.Size = new System.Drawing.Size(75, 23);
             this.BTN_OK.TabIndex = 4;
@@ -85,7 +87,7 @@
             // BTN_Cancel
             // 
             this.BTN_Cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.BTN_Cancel.Location = new System.Drawing.Point(142, 206);
+            this.BTN_Cancel.Location = new System.Drawing.Point(143, 236);
             this.BTN_Cancel.Name = "BTN_Cancel";
             this.BTN_Cancel.Size = new System.Drawing.Size(75, 23);
             this.BTN_Cancel.TabIndex = 5;
@@ -95,7 +97,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 26);
+            this.label1.Location = new System.Drawing.Point(15, 62);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(75, 13);
             this.label1.TabIndex = 6;
@@ -104,7 +106,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 73);
+            this.label2.Location = new System.Drawing.Point(14, 103);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(67, 13);
             this.label2.TabIndex = 7;
@@ -113,7 +115,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 119);
+            this.label3.Location = new System.Drawing.Point(13, 149);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(79, 13);
             this.label3.TabIndex = 8;
@@ -122,11 +124,29 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(14, 164);
+            this.label4.Location = new System.Drawing.Point(15, 194);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(75, 13);
             this.label4.TabIndex = 9;
             this.label4.Text = "Date de retour";
+            // 
+            // CB_Pret
+            // 
+            this.CB_Pret.Enabled = false;
+            this.CB_Pret.FormattingEnabled = true;
+            this.CB_Pret.Location = new System.Drawing.Point(130, 24);
+            this.CB_Pret.Name = "CB_Pret";
+            this.CB_Pret.Size = new System.Drawing.Size(115, 21);
+            this.CB_Pret.TabIndex = 1;
+            // 
+            // LB_Pret
+            // 
+            this.LB_Pret.AutoSize = true;
+            this.LB_Pret.Location = new System.Drawing.Point(15, 27);
+            this.LB_Pret.Name = "LB_Pret";
+            this.LB_Pret.Size = new System.Drawing.Size(36, 13);
+            this.LB_Pret.TabIndex = 7;
+            this.LB_Pret.Text = "# Pret";
             // 
             // Emprunts_Ajouter
             // 
@@ -134,21 +154,25 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.BTN_Cancel;
-            this.ClientSize = new System.Drawing.Size(283, 249);
+            this.ClientSize = new System.Drawing.Size(277, 279);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
+            this.Controls.Add(this.LB_Pret);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.BTN_Cancel);
             this.Controls.Add(this.BTN_OK);
             this.Controls.Add(this.DTP_DateRetourPrevu);
+            this.Controls.Add(this.CB_Pret);
             this.Controls.Add(this.DTP_DateEmprunt);
             this.Controls.Add(this.CB_NumAdherent);
             this.Controls.Add(this.CB_NumExemplaire);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(293, 317);
             this.Name = "Emprunts_Ajouter";
-            this.Text = "Emprunts_Ajouter";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.Emprunts_Ajouter_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -167,5 +191,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox CB_Pret;
+        private System.Windows.Forms.Label LB_Pret;
     }
 }

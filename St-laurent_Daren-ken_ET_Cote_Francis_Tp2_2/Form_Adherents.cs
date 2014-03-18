@@ -53,7 +53,7 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2
                 }
                 catch (OracleException ex)
                 {
-                    MessageBox.Show(ex.Message.ToString());
+                    ErrorMessage(ex);
                 }
 
             }
@@ -100,7 +100,7 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2
                 }
                 catch (OracleException ex)
                 {
-                    MessageBox.Show(ex.Message.ToString());
+                    ErrorMessage(ex);
                 }
             }
 
@@ -129,7 +129,7 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2
                 }
                 catch (OracleException ex)
                 {
-                    MessageBox.Show(ex.Message.ToString());
+                    ErrorMessage(ex);
                 }
             }
 
@@ -163,7 +163,7 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2
             }
             catch (OracleException ex)
             {
-                MessageBox.Show(ex.Message.ToString());
+                ErrorMessage(ex);
             }
         }
 
@@ -190,6 +190,21 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2
             {
                 BTN_Modif.Enabled = false;
                 BTN_Supprimer.Enabled = false;
+            }
+        }
+        private void ErrorMessage(OracleException Ex)
+        {
+            switch (Ex.Number)
+            {
+                case 2292:
+                    MessageBox.Show("Les adhérents qui ont des données dans la biblio ne peuvent être effacés.", "Erreur 2292", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    break;
+                case 1407:
+                    MessageBox.Show("Vous ne pouvez pas rien mettre dans le nom", "Erreur 1407", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    break;
+                default:
+                    MessageBox.Show("Une erreur non-gerer est survenue : " + Ex.Number.ToString() + ":" + Ex.Message.ToString(),"Erreur : " + Ex.Number.ToString(), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    break;
             }
         }
 

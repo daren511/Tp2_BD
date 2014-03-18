@@ -31,7 +31,18 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2_2
             }
 
         }
+        public string numPret
+        {
+            get
+            {
+                return CB_Pret.Text;
+            }
+            set
+            {
+                CB_Pret.Text = value;
+            }
 
+        }
 
         public string numExemplaire
         {
@@ -79,6 +90,11 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2_2
         private void Emprunts_Ajouter_Load(object sender, EventArgs e)
         {
             DTP_DateRetourPrevu.MinDate = DateTime.Today;
+            fillCB();
+        }
+
+        private void fillCB()
+        {
             try
             {
                 OracleCommand oraSelect = new OracleCommand("GestionEmprunts", conn);
@@ -99,10 +115,46 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2_2
             }
             catch (OracleException ex)
             {
-                MessageBox.Show(ex.Message.ToString());
+                ErrorMessage(ex);
             }
-        
+            try
+            {
 
+                OracleCommand oraSelect2 = conn.CreateCommand(); ;
+                oraSelect2.CommandText = "GestionEmprunts.Consulnumadherent";
+                oraSelect2.CommandType = CommandType.StoredProcedure;
+
+                OracleParameter oraParamSelect2 = new OracleParameter("RESULTAT", OracleDbType.RefCursor);
+                oraParamSelect2.Direction = ParameterDirection.ReturnValue;
+                oraSelect2.Parameters.Add(oraParamSelect2);
+
+                using (OracleDataReader oraReader2 = oraSelect2.ExecuteReader())
+                {
+                    while (oraReader2.Read())
+                    {
+                        CB_NumAdherent.Items.Add(oraReader2.GetInt32(0).ToString());
+                    }
+                }
+            }
+
+            catch (OracleException ex)
+            {
+                ErrorMessage(ex);
+            }
+        }
+
+
+        private void ErrorMessage(OracleException Ex)
+        {
+            switch (Ex.Number)
+            {
+                case 2292:
+                    MessageBox.Show("Le livre à déjà été louer", "Erreur 2292", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    break;
+                default:
+                    MessageBox.Show("Une erreur non-gerer est survenue : " + Ex.Number.ToString() + ":" + Ex.Message.ToString(), Ex.Number.ToString(), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    break;
+            }
         }
 
     }
