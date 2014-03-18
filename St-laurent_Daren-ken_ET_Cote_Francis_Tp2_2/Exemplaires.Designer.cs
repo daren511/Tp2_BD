@@ -100,6 +100,7 @@
             this.BTN_Cancel.TabIndex = 5;
             this.BTN_Cancel.Text = "Annuler";
             this.BTN_Cancel.UseVisualStyleBackColor = true;
+            this.BTN_Cancel.Click += new System.EventHandler(this.BTN_Cancel_Click);
             // 
             // Exemplaires
             // 
@@ -116,6 +117,7 @@
             this.MinimumSize = new System.Drawing.Size(572, 298);
             this.Name = "Exemplaires";
             this.Text = "Exemplaires";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Exemplaires_FormClosing);
             this.Load += new System.EventHandler(this.Exemplaires_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Exemplaires)).EndInit();
             this.ResumeLayout(false);

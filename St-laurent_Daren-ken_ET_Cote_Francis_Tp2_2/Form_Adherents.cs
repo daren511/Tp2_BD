@@ -129,9 +129,7 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2
                 }
                 catch (OracleException ex)
                 {
-
                     MessageBox.Show(ex.Message.ToString());
-
                 }
             }
 

@@ -224,7 +224,6 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2
         {
             if(callBackForm != null)
                callBackForm.Show();
-            
         }
 
 
@@ -351,7 +350,7 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2
         }
         private void callFormExemplaires()
         {
-            Exemplaires fe = new Exemplaires(DGV_Livres.SelectedRows[0].Cells[0].Value.ToString());
+            Exemplaires fe = new Exemplaires(Int32.Parse(DGV_Livres.SelectedRows[0].Cells[0].Value.ToString()));
             fe.conn = conn;
 
             this.Hide();

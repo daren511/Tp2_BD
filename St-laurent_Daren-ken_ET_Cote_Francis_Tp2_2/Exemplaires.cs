@@ -15,9 +15,9 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2_2
     {
         public OracleConnection conn = null;
         public Form callBackForm = null;
-        private string livre = null;
+        private int livre = 0;
         private DataSet Exemplairedata = null;
-        public Exemplaires(string Livre)
+        public Exemplaires(int Livre)
         {
             livre = Livre;
             InitializeComponent();
@@ -44,14 +44,17 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2_2
                 oraSelect.CommandText = "GestionEXEMPLAIRES.consulexemplaireparlivre";
                 oraSelect.CommandType = CommandType.StoredProcedure;
 
-                OracleParameter oraParamLivre = new OracleParameter("PNUMLIVRE",OracleDbType.Int32);
-                oraParamLivre.Direction = ParameterDirection.Input;
-                oraParamLivre.Value = Int32.Parse(livre);
-
                 //Retour
                 OracleParameter OraParaResultat = new OracleParameter("Resultat", OracleDbType.RefCursor);
                 OraParaResultat.Direction = ParameterDirection.ReturnValue;
+
+
+                OracleParameter oraParamLivre = new OracleParameter("PNUMLIVRE",OracleDbType.Int32);
+                oraParamLivre.Direction = ParameterDirection.Input;
+                oraParamLivre.Value = livre;
+
                 oraSelect.Parameters.Add(OraParaResultat);
+                oraSelect.Parameters.Add(oraParamLivre);
 
                 //Remplir DGV 
                 OracleDataAdapter oraAdapter = new OracleDataAdapter(oraSelect);
@@ -68,11 +71,76 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2_2
 
         private void BTN_Ajouter_Click(object sender, EventArgs e)
         {
+            DialogResult Confirmation;
+            Confirmation = MessageBox.Show("Voulez-vous Crée un exemplaire du livre "+ livre.ToString() + " ?", "Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (Confirmation == System.Windows.Forms.DialogResult.OK)
+            {
+                try
+                {
+                    OracleCommand oraAjout = new OracleCommand("Gestionexemplaires", conn);
+                    oraAjout.CommandText = "Gestionexemplaires.Insertion";
+                    oraAjout.CommandType = CommandType.StoredProcedure;
+
+                    OracleParameter OraParaNumLivre = new OracleParameter("PNUMLIVRE", OracleDbType.Int32);
+                    OracleParameter OraParaDispo = new OracleParameter("PDISPONIBLE", OracleDbType.Char);
+
+                    OraParaNumLivre.Direction = ParameterDirection.Input;
+                    OraParaDispo.Direction = ParameterDirection.Input;
+
+
+                    OraParaNumLivre.Value = livre;
+                    OraParaDispo.Value = 1;
+
+                    oraAjout.Parameters.Add(OraParaNumLivre);
+                    oraAjout.Parameters.Add(OraParaDispo);
+
+                    oraAjout.ExecuteNonQuery();
+                    reloadDGV();
+                }
+                catch (OracleException ex)
+                {
+                    MessageBox.Show(ex.Message.ToString());
+                }
+
+            }
 
         }
         private void BTN_Delete_Click(object sender, EventArgs e)
-        {
+        {      
+            DialogResult Confirmation;
+            Confirmation = MessageBox.Show("Voulez-vous vraiment effacer cette entrée ?", "Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (Confirmation == System.Windows.Forms.DialogResult.OK)
+            {
+                try
+                {
+                    OracleCommand oraDelete = new OracleCommand("GestionExemplaires", conn);
+                    oraDelete.CommandText = "GestionExemplaires.Supprimer";
+                    oraDelete.CommandType = CommandType.StoredProcedure;
 
+                    OracleParameter OraParaNumAdherent = new OracleParameter("PNUMEXEMPLAIRE", OracleDbType.Int32);
+                    OraParaNumAdherent.Value = DGV_Exemplaires.SelectedRows[0].Cells[0].Value.ToString();
+                    OraParaNumAdherent.Direction = ParameterDirection.Input;
+                    oraDelete.Parameters.Add(OraParaNumAdherent);
+
+                    oraDelete.ExecuteNonQuery();
+                    reloadDGV();
+                }
+                catch (OracleException ex)
+                {
+                    MessageBox.Show(ex.Message.ToString());
+                }
+            }
+        }
+
+        private void BTN_Cancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Exemplaires_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (callBackForm != null)
+                callBackForm.Show();
         }
         private void ErrorMessage(OracleException Ex)
         {

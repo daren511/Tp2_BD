@@ -45,12 +45,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Ajouter_Exemplaire.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Ajouter_Exemplaire.Designer.cs">
-      <DependentUpon>Ajouter_Exemplaire.cs</DependentUpon>
-    </Compile>
     <Compile Include="Emprunts.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,9 +113,6 @@
     <Compile Include="Retour_Ajouter.Designer.cs">
       <DependentUpon>Retour_Ajouter.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Ajouter_Exemplaire.resx">
-      <DependentUpon>Ajouter_Exemplaire.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Emprunts.resx">
       <DependentUpon>Emprunts.cs</DependentUpon>
     </EmbeddedResource>
