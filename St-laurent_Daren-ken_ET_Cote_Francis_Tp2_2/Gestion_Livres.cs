@@ -230,11 +230,14 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2
 
         private void BTN_Refresh_Click(object sender, EventArgs e)
         {
+
             reloadDGV();
         }
 
         private void BTN_Rechercher_Click(object sender, EventArgs e)
         {
+            BTN_Modifier.Enabled = false;
+            BTN_Delete.Enabled = false;
             try
             {
                 OracleCommand oraSelect = new OracleCommand("GestionLivres", conn);
@@ -266,6 +269,8 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2
 
         private void BTN_PlusEmprunte_Click(object sender, EventArgs e)
         {
+            BTN_Modifier.Enabled = false;
+            BTN_Delete.Enabled = false;
             try
             {
                 OracleCommand oraSelect = new OracleCommand("GestionLivres", conn);
@@ -291,6 +296,8 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2
 
         private void BTN_Auteur_Click(object sender, EventArgs e)
         {
+            BTN_Modifier.Enabled = false;
+            BTN_Delete.Enabled = false;
             try
             {
                 OracleCommand oraSelect = new OracleCommand("GestionLivres", conn);
@@ -316,6 +323,8 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2
 
         private void BTN_AdherentPeriode_Click(object sender, EventArgs e)
         {
+            BTN_Modifier.Enabled = false;
+            BTN_Delete.Enabled = false;
             try
             {
                 OracleCommand oraSelect = new OracleCommand("GestionLivres", conn);
