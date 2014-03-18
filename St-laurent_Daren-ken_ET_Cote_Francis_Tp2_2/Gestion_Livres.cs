@@ -62,7 +62,7 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2
                     oraAjout.Parameters.Add(OraParaAuteur);
 
                     oraAjout.ExecuteNonQuery();
-                    ReloadDGV();
+                    reloadDGV();
 
                 }
                 catch (OracleException ex)
@@ -111,7 +111,7 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2
                     oraAjout.Parameters.Add(OraParaAuteur);
 
                     oraAjout.ExecuteNonQuery();
-                    ReloadDGV();
+                    reloadDGV();
 
                 }
                 catch (OracleException ex)
@@ -127,41 +127,24 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2
             int lastIndex = -1;
             if (DGV_Livres.SelectedRows.Count > 0) lastIndex = DGV_Livres.SelectedRows[0].Index;
 
-            OracleCommand oraSelect = conn.CreateCommand();
-            oraSelect.CommandText = "GestionLivres.Consultlivre";
-            oraSelect.CommandType = CommandType.StoredProcedure;
-
-            OracleParameter oraParaResult = new OracleParameter("Resultats", OracleDbType.RefCursor);
-            oraParaResult.Direction = ParameterDirection.ReturnValue;
-            oraSelect.Parameters.Add(oraParaResult);
-
-            OracleDataAdapter oraAdapter = new OracleDataAdapter(oraSelect);
-            livreDataSet = new DataSet();
-            oraAdapter.Fill(livreDataSet);
-            DGV_Livres.DataSource = livreDataSet.Tables[0];
-
-            if (lastIndex > -1 && DGV_Livres.Rows.Count > 0) DGV_Livres.Rows[Math.Min(lastIndex, DGV_Livres.Rows.Count - 1)].Selected = true;
-
-            updateControls();
-        }
-        private void ReloadDGV()
-        {
             try
             {
-                OracleCommand oraSelect = new OracleCommand("GestionLivres", conn);
+                OracleCommand oraSelect = conn.CreateCommand();
                 oraSelect.CommandText = "GestionLivres.Consultlivre";
                 oraSelect.CommandType = CommandType.StoredProcedure;
 
-                //Retour
-                OracleParameter OraParaResultat = new OracleParameter("Resultat", OracleDbType.RefCursor);
-                OraParaResultat.Direction = ParameterDirection.ReturnValue;
-                oraSelect.Parameters.Add(OraParaResultat);
+                OracleParameter oraParaResult = new OracleParameter("Resultats", OracleDbType.RefCursor);
+                oraParaResult.Direction = ParameterDirection.ReturnValue;
+                oraSelect.Parameters.Add(oraParaResult);
 
-                //Remplir DGV 
                 OracleDataAdapter oraAdapter = new OracleDataAdapter(oraSelect);
                 livreDataSet = new DataSet();
                 oraAdapter.Fill(livreDataSet);
                 DGV_Livres.DataSource = livreDataSet.Tables[0];
+
+                if (lastIndex > -1 && DGV_Livres.Rows.Count > 0) DGV_Livres.Rows[Math.Min(lastIndex, DGV_Livres.Rows.Count - 1)].Selected = true;
+
+                updateControls();
             }
             catch (OracleException ex)
             {
