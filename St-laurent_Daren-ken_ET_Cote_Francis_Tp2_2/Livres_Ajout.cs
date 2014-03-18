@@ -7,11 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Oracle.DataAccess.Client;
 
 namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2_2
 {
     public partial class Livres_Ajout : Form
     {
+        public OracleConnection conn = null;
+        
         public Livres_Ajout()
         {
             InitializeComponent();
