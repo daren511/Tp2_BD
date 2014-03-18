@@ -53,5 +53,11 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2_2
                 TB_Auteur.Text = value;
             }
         }
+
+        private void Livres_Ajout_Load(object sender, EventArgs e)
+        {
+            if (TB_NumLivre.Text !="")
+                TB_NumLivre.Enabled = false; // SO BLACK
+        }
     }
 }

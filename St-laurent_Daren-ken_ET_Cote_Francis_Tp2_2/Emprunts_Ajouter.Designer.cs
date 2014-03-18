@@ -59,14 +59,14 @@
             // DTP_DateEmprunt
             // 
             this.DTP_DateEmprunt.Enabled = false;
-            this.DTP_DateEmprunt.Location = new System.Drawing.Point(129, 115);
+            this.DTP_DateEmprunt.Location = new System.Drawing.Point(129, 119);
             this.DTP_DateEmprunt.Name = "DTP_DateEmprunt";
             this.DTP_DateEmprunt.Size = new System.Drawing.Size(115, 20);
             this.DTP_DateEmprunt.TabIndex = 2;
             // 
             // DTP_DateRetourPrevu
             // 
-            this.DTP_DateRetourPrevu.Location = new System.Drawing.Point(129, 169);
+            this.DTP_DateRetourPrevu.Location = new System.Drawing.Point(129, 164);
             this.DTP_DateRetourPrevu.Name = "DTP_DateRetourPrevu";
             this.DTP_DateRetourPrevu.Size = new System.Drawing.Size(115, 20);
             this.DTP_DateRetourPrevu.TabIndex = 3;
@@ -75,7 +75,7 @@
             // BTN_OK
             // 
             this.BTN_OK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.BTN_OK.Location = new System.Drawing.Point(22, 219);
+            this.BTN_OK.Location = new System.Drawing.Point(15, 206);
             this.BTN_OK.Name = "BTN_OK";
             this.BTN_OK.Size = new System.Drawing.Size(75, 23);
             this.BTN_OK.TabIndex = 4;
@@ -85,7 +85,7 @@
             // BTN_Cancel
             // 
             this.BTN_Cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.BTN_Cancel.Location = new System.Drawing.Point(145, 219);
+            this.BTN_Cancel.Location = new System.Drawing.Point(142, 206);
             this.BTN_Cancel.Name = "BTN_Cancel";
             this.BTN_Cancel.Size = new System.Drawing.Size(75, 23);
             this.BTN_Cancel.TabIndex = 5;
@@ -113,7 +113,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(13, 121);
+            this.label3.Location = new System.Drawing.Point(12, 119);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(79, 13);
             this.label3.TabIndex = 8;
@@ -122,7 +122,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(13, 169);
+            this.label4.Location = new System.Drawing.Point(14, 164);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(75, 13);
             this.label4.TabIndex = 9;
@@ -134,7 +134,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.BTN_Cancel;
-            this.ClientSize = new System.Drawing.Size(269, 254);
+            this.ClientSize = new System.Drawing.Size(283, 249);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);

@@ -40,8 +40,8 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2
 
                 try
                 {
-                    OracleCommand oraAjout = new OracleCommand("GestionRetours", conn);
-                    oraAjout.CommandText = "GestionRetours.Insertion";
+                    OracleCommand oraAjout = new OracleCommand("GestionLivres", conn);
+                    oraAjout.CommandText = "GestionLivres.Insertion";
                     oraAjout.CommandType = CommandType.StoredProcedure;
 
                     OracleParameter OraParaNumLivre = new OracleParameter("PNumLivre", OracleDbType.Int32);
@@ -80,13 +80,17 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2
             Modifier.conn = this.conn;
             Modifier.Text = "Modification";
             
+
+            Modifier.numLivre = DGV_Livres.SelectedRows[0].Cells[0].Value.ToString();
+            Modifier.titre = DGV_Livres.SelectedRows[0].Cells[1].Value.ToString();
+            Modifier.auteur = DGV_Livres.SelectedRows[0].Cells[2].Value.ToString();
             if (Modifier.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
 
                 try
                 {
-                    OracleCommand oraAjout = new OracleCommand("GestionRetours", conn);
-                    oraAjout.CommandText = "GestionRetours.Modiflivre";
+                    OracleCommand oraAjout = new OracleCommand("GestionLivres", conn);
+                    oraAjout.CommandText = "GestionLivres.Modiflivre";
                     oraAjout.CommandType = CommandType.StoredProcedure;
 
                     OracleParameter OraParaNumLivre = new OracleParameter("PNumLivre", OracleDbType.Int32);
@@ -144,8 +148,8 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2
         {
             try
             {
-                OracleCommand oraSelect = new OracleCommand("GestionRetours", conn);
-                oraSelect.CommandText = "GestionRetours.Consultlivre";
+                OracleCommand oraSelect = new OracleCommand("GestionLivres", conn);
+                oraSelect.CommandText = "GestionLivres.Consultlivre";
                 oraSelect.CommandType = CommandType.StoredProcedure;
 
                 //Retour
@@ -187,7 +191,7 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2
                 try
                 {
                     OracleCommand oraDelete = new OracleCommand("GestionLivres", conn);
-                    oraDelete.CommandText = "GestionLivre.Supprimer";
+                    oraDelete.CommandText = "GestionLivres.Supprimer";
                     oraDelete.CommandType = CommandType.StoredProcedure;
 
                     OracleParameter oraParaNumLivre = new OracleParameter("PNumLivre", OracleDbType.Int32);
@@ -215,6 +219,28 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2
 
         private void Gestion_Livres_Load(object sender, EventArgs e)
         {
+            try
+            {
+                OracleCommand oraSelectAdherent = new OracleCommand("GestionEmprunts", conn);
+                oraSelectAdherent.CommandText = "GestionEmprunts.ConsulNumAdherent";
+                oraSelectAdherent.CommandType = CommandType.StoredProcedure;
+
+                OracleParameter oraParamSelect2 = new OracleParameter("RESULTAT", OracleDbType.RefCursor);
+                oraParamSelect2.Direction = ParameterDirection.ReturnValue;
+                oraSelectAdherent.Parameters.Add(oraParamSelect2);
+
+                using (OracleDataReader oraReaderAd = oraSelectAdherent.ExecuteReader())
+                {
+                    while (oraReaderAd.Read())
+                    {
+                        CB_NumAdherent.Items.Add(oraReaderAd.GetInt32(0).ToString());
+                    }
+                }
+            }
+            catch (OracleException ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
             reloadDGV();
         }
 
@@ -230,6 +256,122 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2
         private void BTN_Refresh_Click(object sender, EventArgs e)
         {
             reloadDGV();
+        }
+
+        private void BTN_Rechercher_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OracleCommand oraSelect = new OracleCommand("GestionLivres", conn);
+                oraSelect.CommandText = "GestionLivres.CONSULTLIVRETITRE";
+                oraSelect.CommandType = CommandType.StoredProcedure;
+
+                //Retour
+                OracleParameter OraParaResultat = new OracleParameter("Resultat", OracleDbType.RefCursor);
+                OracleParameter OraParaTitre = new OracleParameter("PTitre", OracleDbType.Varchar2,40);
+
+                
+                OraParaResultat.Direction = ParameterDirection.ReturnValue;
+                OraParaTitre.Value = TB_Rechercher.Text;
+                OraParaTitre.Direction = ParameterDirection.Input;
+                oraSelect.Parameters.Add(OraParaResultat);
+                oraSelect.Parameters.Add(OraParaTitre);
+
+                //Remplir DGV 
+                OracleDataAdapter oraAdapter = new OracleDataAdapter(oraSelect);
+                livreDataSet = new DataSet();
+                oraAdapter.Fill(livreDataSet);
+                DGV_Livres.DataSource = livreDataSet.Tables[0];
+            }
+            catch (OracleException ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
+        }
+
+        private void BTN_PlusEmprunte_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OracleCommand oraSelect = new OracleCommand("GestionLivres", conn);
+                oraSelect.CommandText = "GestionLivres.CONSULTLIVREPLUSEMPRUNTE";
+                oraSelect.CommandType = CommandType.StoredProcedure;
+
+                //Retour
+                OracleParameter OraParaResultat = new OracleParameter("Resultat", OracleDbType.RefCursor);
+                OraParaResultat.Direction = ParameterDirection.ReturnValue;
+                oraSelect.Parameters.Add(OraParaResultat);
+
+                //Remplir DGV 
+                OracleDataAdapter oraAdapter = new OracleDataAdapter(oraSelect);
+                livreDataSet = new DataSet();
+                oraAdapter.Fill(livreDataSet);
+                DGV_Livres.DataSource = livreDataSet.Tables[0];
+            }
+            catch (OracleException ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
+        }
+
+        private void BTN_Auteur_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OracleCommand oraSelect = new OracleCommand("GestionLivres", conn);
+                oraSelect.CommandText = "GestionLivres.CONSULTLIVREAUTEUR";
+                oraSelect.CommandType = CommandType.StoredProcedure;
+
+                //Retour
+                OracleParameter OraParaResultat = new OracleParameter("Resultat", OracleDbType.RefCursor);
+                OraParaResultat.Direction = ParameterDirection.ReturnValue;
+                oraSelect.Parameters.Add(OraParaResultat);
+
+                //Remplir DGV 
+                OracleDataAdapter oraAdapter = new OracleDataAdapter(oraSelect);
+                livreDataSet = new DataSet();
+                oraAdapter.Fill(livreDataSet);
+                DGV_Livres.DataSource = livreDataSet.Tables[0];
+            }
+            catch (OracleException ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
+        }
+
+        private void BTN_AdherentPeriode_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OracleCommand oraSelect = new OracleCommand("GestionLivres", conn);
+                oraSelect.CommandText = "GestionLivres.CONSULTLIVRESUGGESTION";
+                oraSelect.CommandType = CommandType.StoredProcedure;
+
+                //Retour
+                OracleParameter OraParaResultat = new OracleParameter("Resultat", OracleDbType.RefCursor);
+                OracleParameter OraParaDateDebut = new OracleParameter("PDATEDEBUT", OracleDbType.Date);
+                OracleParameter OraParaDateFin = new OracleParameter("PDATEFIN", OracleDbType.Date);
+
+                OraParaResultat.Direction = ParameterDirection.ReturnValue;
+                OraParaDateDebut.Direction = ParameterDirection.Input;
+                OraParaDateFin.Direction = ParameterDirection.Input;
+                OraParaDateDebut.Value = DTP_DateDebut.Value;
+                OraParaDateFin.Value = DTP_DateFin.Value;
+
+                oraSelect.Parameters.Add(OraParaResultat);
+                oraSelect.Parameters.Add(OraParaDateDebut);
+                oraSelect.Parameters.Add(OraParaDateFin);
+
+                //Remplir DGV 
+                OracleDataAdapter oraAdapter = new OracleDataAdapter(oraSelect);
+                livreDataSet = new DataSet();
+                oraAdapter.Fill(livreDataSet);
+                DGV_Livres.DataSource = livreDataSet.Tables[0];
+            }
+            catch (OracleException ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
         }
     }
 }

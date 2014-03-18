@@ -32,6 +32,7 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2_2
 
         }
 
+
         public string numExemplaire
         {
             get
@@ -96,26 +97,16 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2_2
                     }
                 }
             }
-            catch(OracleException ex)
+            catch (OracleException ex)
             {
                 MessageBox.Show(ex.Message.ToString());
             }
-            OracleCommand oraSelectAdherent = new OracleCommand("GestionEmprunts", conn);
-            oraSelectAdherent.CommandText = "GestionEmprunts.ConsulNumAdherent";
-            oraSelectAdherent.CommandType = CommandType.StoredProcedure;
-
-            OracleParameter oraParamSelect2 = new OracleParameter("RESULTAT", OracleDbType.RefCursor);
-            oraParamSelect2.Direction = ParameterDirection.ReturnValue;
-            oraSelectAdherent.Parameters.Add(oraParamSelect2);
-
-            using (OracleDataReader oraReaderAd = oraSelectAdherent.ExecuteReader())
-            {
-                while (oraReaderAd.Read())
-                {
-                    CB_NumAdherent.Items.Add(oraReaderAd.GetInt32(0).ToString());
-                }
-            }
+        
 
         }
+
     }
 }
+
+    
+

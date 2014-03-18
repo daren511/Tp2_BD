@@ -41,21 +41,25 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2_2
 
                     OracleParameter OraNumExemplaire = new OracleParameter("PNumExemplaire", OracleDbType.Int32);
                     OracleParameter OraNumAdherent = new OracleParameter("PNumAdherent", OracleDbType.Int32);
+                    OracleParameter OraNumLivre = new OracleParameter("PNumLivre", OracleDbType.Int32);
                     OracleParameter OraDateEmprunt = new OracleParameter("PDateEmprunt", OracleDbType.Date);
                     OracleParameter OraDateRetourPrevu = new OracleParameter("PDateRetourPrevu", OracleDbType.Date);
 
                     OraNumExemplaire.Direction = ParameterDirection.Input;
                     OraNumAdherent.Direction = ParameterDirection.Input;
+                    OraNumLivre.Direction = ParameterDirection.Input;
                     OraDateEmprunt.Direction = ParameterDirection.Input;
                     OraDateRetourPrevu.Direction = ParameterDirection.Input;
 
                     OraNumExemplaire.Value = Ajouter.numExemplaire;
                     OraNumAdherent.Value = Ajouter.numAdherent;
+                    OraNumLivre.Value = Ajouter.numLivres;
                     OraDateEmprunt.Value = DateTime.Parse(Ajouter.dateEmprunt);
                     OraDateRetourPrevu.Value = DateTime.Parse(Ajouter.dateRetourPrevu);
 
                     oraAjout.Parameters.Add(OraNumExemplaire);
                     oraAjout.Parameters.Add(OraNumAdherent);
+                    oraAjout.Parameters.Add(OraNumLivre);
                     oraAjout.Parameters.Add(OraDateEmprunt);
                     oraAjout.Parameters.Add(OraDateRetourPrevu);
 
@@ -78,7 +82,8 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2_2
             Modifier.Text = "Modification";
             Modifier.modification();
             Modifier.numAdherent = DGV_Emprunts.SelectedRows[0].Cells[0].Value.ToString();
-            Modifier.numExemplaire = DGV_Emprunts.SelectedRows[0].Cells[2].Value.ToString();
+            Modifier.numExemplaire = DGV_Emprunts.SelectedRows[0].Cells[1].Value.ToString();
+            Modifier.numLivres = DGV_Emprunts.SelectedRows[0].Cells[2].Value.ToString();
             Modifier.dateEmprunt = DGV_Emprunts.SelectedRows[0].Cells[3].Value.ToString();
             Modifier.dateRetourPrevu = DGV_Emprunts.SelectedRows[0].Cells[4].Value.ToString();
             if (Modifier.ShowDialog() == System.Windows.Forms.DialogResult.OK)

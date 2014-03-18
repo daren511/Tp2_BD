@@ -87,7 +87,6 @@
             // 
             // TB_NumLivre
             // 
-            this.TB_NumLivre.Enabled = false;
             this.TB_NumLivre.Location = new System.Drawing.Point(85, 22);
             this.TB_NumLivre.Name = "TB_NumLivre";
             this.TB_NumLivre.Size = new System.Drawing.Size(70, 20);
@@ -128,6 +127,7 @@
             this.MinimumSize = new System.Drawing.Size(376, 202);
             this.Name = "Livres_Ajout";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Load += new System.EventHandler(this.Livres_Ajout_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
