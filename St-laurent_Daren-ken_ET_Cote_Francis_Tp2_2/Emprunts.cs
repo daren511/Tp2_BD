@@ -172,6 +172,9 @@ namespace St_laurent_Daren_ken_ET_Cote_Francis_Tp2_2
         {
             switch (Ex.Number)
             {
+                case 20324:
+                    MessageBox.Show("On ne peut pas effectuer de pret la fin de semaine", "Erreur 20324", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    break;
                 case 20325:
                     MessageBox.Show("Le livre n'est pas disponible", "Erreur 20325", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     break;
